@@ -1,56 +1,216 @@
 /* Enter your Styles below! */
 
-body { 
-    font-family: Helvetica, sans-serif;
-    font-size: 16px;
-     }
-
-h1, h2, h3, h4 {
-    font-family: Helvetica, sans-serif;
-}
 
 h1 {
-    font-size: 48px;
-}
+    font-family:Helvetica;
+    font-size:50px;
+    color:white;
+    text-transform: uppercase;
+    display:inline-block;
+    margin-top:10px;
+    margin-left:20px;
+    text-decoration: none;
 
-h2 {
-    font-size: 36px;
 }
-
-h3 {
-    font-size: 28px;
-}
-h4 {
-    font-size: 24px;
-}
-
-blockquote {
-    margin: 20px 60px;
-    font-family: Helvetica, sans-serif;
-}
-
-header {margin-bottom: 20px;}
-
-/* ensures that your images stretch the width of their containers */
-img { width: 100%; }
 
 a { 
-    color: red;
-    text-decoration: none;
-     }
-a:hover { color: black; }
+    font-family:helvetica;
+    font-size:20px;
+    font-weight:lighter;
+    text-decoration:none;
+    color:#333333;
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top:20px;
 
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 40px;
-    width: 60%;
-    margin: auto;
+    }
+
+
+
+h2 {
+    font-family:serif;
+    font-size: 30px;
+    color: #333333;
+    background-color:#35ea97;
+    padding-left:10px;
+    padding-top:5px;
+    padding-bottom:5px;}
+
+
+h3 {font-size:20px;
+    color:white;
+    background-color:grey;
+    padding-left:10px;
+
+
+
 }
 
-.grid div {
+
+
+
+nav ul
+{   list-style-type: none;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    color:#EAC747;
+    margin-top:0;
+
+    
+    }
+
+
+nav li 
+{   display: inline-block;
+    background-color:white;
+    width:250px;
+    height:50px;
+    margin-left:5px;
+    margin-right:5px;
+    border-radius:8px;
+    color:#333333;
+
+
+    }
+
+body {
+    background-color:#333333;
+    width:100%;
+    margin:0;
+    margin-top:0;
+
+}
+
+
+
+
+ header {
+    background-color:#35ea97;
+    height:80px;
+    padding:0;
+ }
+
+ p.description {
+    margin-left:30px;
+    color:white;
+    text-align:center;
+    font-family:helvetica;
+ }
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.todaystip {
+    background-color:#000000;
+    color:white;
+    width:170px;
+    height:60px;
+    border-radius:20px;
+    border:none;
+    font-size:20px;
+    font-family:helvetica;
+}
+
+.greenbox {
+    background-color:#35ea97;
+    width:300px;
+    height:200px; 
+    margin-right:auto;
+    margin-left:auto;
+    margin-top:-28px;
+    z-index:-1;
+    position:relative;
+    border-radius:20px;
+
+}
+
+.quote {
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    padding-top:60px;
+    color:white;
+    width:250px;
+    font-size:20px;
+    font-family:helvetica;
+
+}
+
+.picture-lg {
     background-color: #ccc;
-    padding: 20px;
+    width:100%;
+    min-height: 200px;
+}
+
+.picture-sm {
+    background-color: #ccc;
+    width: 200px;
+    height: 200px;
+}
+
+.picture-circle {
+    background-color: #ccc;
+    width:200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:40px;
+}
+
+
+.video {
+    background-color: #ccc;
+    width: 350px;
+    height:250px;
+}
+
+.price-grid {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    width:100%;
+}
+
+.price-grid span:nth-child(2) {
+    text-align:right;
+}
+
+.button {
+    background-color: #ccc;
+    border-radius: 12px;
+    border: 1px solid black;
+    padding:8px;
+}
+
+.maincontent {
+    width:100%;
+    margin: auto;
+    line-height:30px;
+
+
+}
+
+.meditationcontent {
+    width:90%;
+    margin: auto;
+    text-align:center;
+
+}
+
+.exercisecontent {
+    width:90%;
+    margin:auto;
+
+}
+
+.healthcontent {
+    width: 90%;
+
 }
 
 @media only screen and (min-width:768px) {
