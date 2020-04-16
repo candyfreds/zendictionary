@@ -5,6 +5,10 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+
+		<button id="btnScrollToTop">
+	<i class='fas fa-arrow-alt-circle-up' style='font-size:35px;color:white'></i>
+	</button>
 	
 	<header>
 		<h1>Zen Dictionary</h1>
@@ -62,6 +66,18 @@
 
 	</main>
 	
+<script>
+		const btnScrollToTop = document.querySelector("#btnScrollToTop");
 
+		btnScrollToTop.addEventListener("click", function () {
+			window.scrollTo({
+				top:0,
+				left:0,
+				behavior:"smooth"
+			});
+
+		});
+</script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </body>
 </html>

@@ -5,6 +5,13 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+
+
+	<button id="btnScrollToTop">
+	<i class='fas fa-arrow-alt-circle-up' style='font-size:35px;color:white'></i>
+	</button>
+
+
 	
 	<header>
 		<h1>Zen Dictionary</h1>
@@ -13,48 +20,92 @@
 	
 	<nav>
 		<ul>
-			<li><a href="index.html">Home</a></li>
-			<li><a href="meditation.html">Meditation</a></li>
-			<li><a href="exercise.html">Exercise</a></li>
-			<li><a href="yoga.html">Yoga</a></li>
-			<li><a href="health.html">Health/Food</a></li>
+			<li><a href="index.html">HOME</a></li>
+			<li><a href="meditation.html">MEDITATION</a></li>
+			<li><a href="exercise.html">EXERCISE</a></li>
+			<li><a href="yoga.html">YOGA</a></li>
+			<li><a href="health.html">HEALTH/FOOD</a></li>
 					
 		</ul>
 	</nav>
 	
 	<main>
 		
+
+
 		<div class="meditationcontent">
 			
-			
-			<img src="images/sit.png" class="picture-circle">
-			<h2> Sit </h2>
-			<p>Sit comfortably upright on a chair, feet on the floor, hands resting on your thighs. (If you prefer, you can sit on the floor.) Take two or three deep breaths, then close your eyes. </p>
-			
-			
-			<img src="images/scan.png" class="picture-circle">
-			<h2> Scan </h2>
-			<p>Starting from the top of the head and moving down, mentally scan your body, noticing any tension in your muscles, places of comfort or discomfort, the feel of the floor beneath your feet. Begin to pay attention to the natural rhythm of your breath.</p>
-			
-
-			<img src="images/breathe.png" class="picture-circle">
-			<h2> Breathe </h2>
-			<p>As you become more aware of your breath, follow the rising and falling sensation without changing it in any way, silently counting breaths.</p>
 		
+			
+			<h2> What is meditation? </h2>
+			<p>Meditation is a practice where an individual uses a technique – such as mindfulness, or focusing the mind on a particular object, thought, or activity – to train attention and awareness, and achieve a mentally clear and emotionally calm and stable state. </p>
+			
+			
+			
+			<h2> What are the benefits of meditation? </h2>
+			<p>There are thousands of studies that have shown mindfulness meditation can positively impact mental and physical health. Whether it’s by reducing stress, improving sleep, increasing focus, or improving relationships, research shows mindfulness works. While the research on mindfulness, especially digital mindfulness programs, is still growing, there is evidence to support the use of mindfulness training for many outcomes.</p>
 
+		</div>
+		<div class="whitebackground">
+			<div class="meditationcontenttwo">	
 
-			<img src="images/wander.png" class="picture-circle">
-			<h2> Wander </h2>
+			
+				<h2 class="greyh2"> How to meditate: </h2>
+					
+
+					<div class="meditationsteps">
+						<div class="circle"> SIT </div>
+						<div class="circle"> SCAN </div>
+						<div class="circle"> BREATHE </div>
+						<div class="circle"> WANDER </div>
+					</div>
+
+		<div class="sit"
+			<h2 class="greyh2">SIT</h2>
+			<p>Sit comfortably upright on a chair, feet on the floor, hands resting on your thighs. (If you prefer, you can sit on the floor.) Take two or three deep breaths, then close your eyes.</p>
+		</div>
+
+		<div class="scan"
+			<h2 class="greyh2">SCAN</h2>
+			<p>Starting from the top of the head and moving down, mentally scan your body, noticing any tension in your muscles, places of comfort or discomfort, the feel of the floor beneath your feet. Begin to pay attention to the natural rhythm of your breath.</p>
+		</div>
+
+		<div class="breathe"
+			<h2 class="greyh2">BREATHE</h2>
+			<p>As you become more aware of your breath, follow the rising and falling sensation without changing it in any way, silently counting breaths.
+
+			Inevitably, your mind will wander. This is one of the first lessons of meditation. When you notice that a thought has distracted you, let go of it and gently return your attention to your breath. Over time, you'll learn to step back and just observe the thoughts. The same goes for sounds: Rather than trying to block them out, let them come and go.</p>
+		</div>
+
+		<div class="wander"
+			<h2 class="greyh2">WANDER</h2>
 			<p>Take a few seconds to allow your mind to do whatever it wants. (You may find your mind is very quiet.) Noticing the sounds around you and bringing your attention back to the body, gently open your eyes.</p>
 
+		</div>
+		</div>
 
 		
+
+
+
 
 
 		</div>
 
 	</main>
-	
+	<script>
+		const btnScrollToTop = document.querySelector("#btnScrollToTop");
+
+		btnScrollToTop.addEventListener("click", function () {
+			window.scrollTo({
+				top:0,
+				left:0,
+				behavior:"smooth"
+			});
+
+		});
+	</script>
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 </body>
 </html>

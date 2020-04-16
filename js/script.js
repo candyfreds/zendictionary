@@ -7,10 +7,5 @@ $(function() {
 
 
 
-
-
-
-
-
 // End of Your Code . Don't delete that line below!!
 });
