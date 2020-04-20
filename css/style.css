@@ -152,6 +152,17 @@ body {
     font-family:helvetica;
 }
 
+.todaystip:hover {
+    background-color:#EAC747;
+    cursor:pointer;
+}
+
+.todaystip:focus {
+    outline:none;
+}
+
+
+
 .greenbox {
     background-color:#35ea97;
     width:300px;
@@ -163,6 +174,14 @@ body {
     position:relative;
     border-radius:20px;
 
+}
+
+#quoteContainer {
+    padding-top:30px;
+    text-align:center;
+    font-family:helvetica;
+    font-weight:lighter;
+    line-height:10px;
 }
 
 .quote {
