@@ -23,7 +23,8 @@ h2 {
     color: white;
     padding-left:20px;
     padding-top:5px;
-    padding-bottom:5px;}
+    padding-bottom:5px;
+    text-decoration:none;}
 
 .front:hover {
     color:#35ea97;
@@ -226,6 +227,8 @@ img {
     column-gap: 20px
 }
 
+
+
 .circles {
     width:150px;
     height:150px;
@@ -243,6 +246,11 @@ img {
     background-color:#2abd79;
 }
 
+.circles:hover {
+    background-color:#EAC747;
+    cursor:pointer;
+}
+
 .circles:focus {
     outline:none;
 
@@ -250,9 +258,24 @@ img {
 
 
 .video {
-    background-color: #ccc;
+    background-color: white;
     width: 350px;
     height:250px;
+    padding-bottom:30px;
+}
+
+.time_button {
+    width:100px;
+    height:50px;
+    border:none;
+    background-color:#333333;
+    color:white;
+    border-radius:20px;
+    font-size:13px;
+}
+
+.time_button:focus {
+    outline:none;
 }
 
 .price-grid {
@@ -303,7 +326,7 @@ img {
 
 .whitebackground {
     background-color:white;
-    height:1500px;
+    height:2500px;
     width:100%;
     margin: auto;
     text-align:left;
@@ -336,6 +359,22 @@ img {
 
 }
 
+.video {
+    border-radius:20px;
+}
+
+.align {
+    margin:0;
+    padding-bottom:10px;
+    padding-top:10px;
+    padding-left:0;
+    padding-right:0;
+}
+
+h2.align {
+    color:grey;
+}
+
 h3 {
     font-family:helvetica;
     font-size: 30px;
@@ -360,6 +399,12 @@ p  {
     margin:auto;
 
 }
+
+.yoga_workout {
+    margin:none;
+    padding-bottom:50px;
+}
+
 
 .healthcontent {
     width: 90%;
