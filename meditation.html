@@ -13,6 +13,49 @@
 	</button>
 
 
+	<script
+  src="https://code.jquery.com/jquery-3.5.0.min.js"
+  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+  crossorigin="anonymous">
+  	</script>
+
+	<script>
+	$(document).ready(function(){
+		$('#show').hide()
+		$('#click').on('click', function () {
+		$('#show').toggle(1000);
+		});
+	});
+	</script>
+
+	<script>
+	$(document).ready(function(){
+		$('#show_2').hide()
+		$('#click_2').on('click', function () {
+		$('#show_2').toggle(1000);
+		});
+	});
+	</script>
+
+	<script>
+	$(document).ready(function(){
+		$('#show_3').hide()
+		$('#click_3').on('click', function () {
+		$('#show_3').toggle(1000);
+		});
+	});
+	</script>
+
+	<script>
+	$(document).ready(function(){
+		$('#show_4').hide()
+		$('#click_4').on('click', function () {
+		$('#show_4').toggle(1000);
+		});
+	});
+	</script>
+
+
 	
 	<header>
 		<a href="index.html"><h1>ZEN DICTIONARY</h1></a>
@@ -41,32 +84,34 @@
 		<div class="whitebackground">
 			<div class="meditationcontenttwo">	
 				<h2 class="greyh2"> How to meditate: </h2>
-				<div class="meditationsteps">
-					<a href="#sit"><div class="circle"> SIT </div></a>
-						<div class="circle"> SCAN </div>
-						<div class="circle"> BREATHE </div>
-						<div class="circle"> WANDER </div>
-					</div>
+				<h3 class="h3">Click the Steps to learn more! </h3>
 
-		<a><div id="sit"></a>
-			<h2 class="greyh2">Step 1: Sit</h2>
+
+		<button id="click" class="circles">SIT</button>
+		<button id="click_2" class="circles">SCAN</button>
+		<button id="click_3" class="circles">BREATHE</button>
+		<button id="click_4" class="circles">WANDER</button>
+
+
+		<div id="show">
+			<h3 class="greyh3">Step 1: Sit</h3>
 			<p>Sit comfortably upright on a chair, feet on the floor, hands resting on your thighs. (If you prefer, you can sit on the floor.) Take two or three deep breaths, then close your eyes.</p>
 		</div>
 
-		<div>
-			<h2 class="greyh2">Step 2: Scan</h2>
+		<div id="show_2">
+			<h3 class="greyh3">Step 2: Scan</h3>
 			<p>Starting from the top of the head and moving down, mentally scan your body, noticing any tension in your muscles, places of comfort or discomfort, the feel of the floor beneath your feet. Begin to pay attention to the natural rhythm of your breath.</p>
 		</div>
 
-		<div>
-			<h2 class="greyh2">Step 3: Breathe </h2>
+		<div id="show_3">
+			<h3 class="greyh3">Step 3: Breathe </h3>
 			<p>As you become more aware of your breath, follow the rising and falling sensation without changing it in any way, silently counting breaths.
 
 			Inevitably, your mind will wander. This is one of the first lessons of meditation. When you notice that a thought has distracted you, let go of it and gently return your attention to your breath. Over time, you'll learn to step back and just observe the thoughts. The same goes for sounds: Rather than trying to block them out, let them come and go.</p>
 		</div>
 
-		<div>
-			<h2 class="greyh2">Step 4: Wander</h2>
+		<div id="show_4">
+			<h3 class="greyh3">Step 4: Wander</h3>
 			<p>Take a few seconds to allow your mind to do whatever it wants. (You may find your mind is very quiet.) Noticing the sounds around you and bringing your attention back to the body, gently open your eyes.</p>
 		</div>
 

@@ -65,6 +65,11 @@ nav li
     cursor:pointer;
     }
 
+nav li:hover {
+    background-color:#2abd79;
+}
+
+
 nav li a {
     display:block;
     color:#333333;
@@ -77,6 +82,7 @@ nav li a {
 .current {
     background-color:#35ea97;
 }
+
 
 
 body {
@@ -119,6 +125,12 @@ body {
 
 #btnScrollToTop:active {
     background:#569b6d;
+    outline:none;
+
+}
+
+#btnScrollToTop:focus {
+    outline:none;
 
 }
 
@@ -165,26 +177,26 @@ body {
 
 }
 
-.picture-lg {
-    background-color: #ccc;
-    width:100%;
-    min-height: 200px;
+.circles {
+    width:150px;
+    height:150px;
+    border:none;
+    background-color:#35ea97;
+    font-size:15px;
+    border-radius:50%;
+    font-family:helvetica;
+    color:#333333;
+    cursor:pointer;
+    margin:20px;
 }
 
-.picture-sm {
-    background-color: #ccc;
-    width: 200px;
-    height: 200px;
+.circles:active {
+    background-color:#2abd79;
 }
 
-.picture-circle {
-    background-color: #ccc;
-    width:200px;
-    height: 200px;
-    border-radius: 50%;
-    margin-left:auto;
-    margin-right:auto;
-    margin-top:40px;
+.circles:focus {
+    outline:none;
+
 }
 
 
@@ -209,7 +221,9 @@ body {
     border-radius: 12px;
     border: 1px solid black;
     padding:8px;
+
 }
+
 
 .maincontent {
     width:100%;
@@ -254,8 +268,27 @@ body {
     padding-bottom:5px;
 }
 
-h3 {
+.greyh3 {
+    color:white;
+    font-size: 20px;
+    padding-left:40px;
+    padding-top:5px;
+    padding-bottom:5px;
+    background-color:#333333;
+}
+
+.h3 {
     color:#333333;
+    font-size: 20px;
+    padding-left:40px;
+    padding-bottom:5px;
+    background-color:white;
+
+
+}
+
+h3 {
+    font-family:helvetica;
     font-size: 30px;
     padding-left:20px;
     padding-top:5px;
@@ -263,26 +296,7 @@ h3 {
 
 }
 
-.meditationsteps {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.circle {
-    background-color:#EAC747;
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    margin-left:10px;
-    text-align:center;
-    align-items: center;
-    display: flex;
-    position: relative;
-    cursor: pointer;
-    
-}
 
 p  {
     padding-left:51px;
