@@ -6,6 +6,21 @@
 </head>
 <body>
 
+<script src="https://code.jquery.com/jquery-3.5.0.min.js"
+  	integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+  	crossorigin="anonymous">
+</script>
+
+<script>
+	$(document).ready(function(){
+		$('.sidebarBtn').click(function(){
+			$('.sidebar').toggleClass('active');
+			$('.sidebarBtn').toggleClass('toggle');
+		})
+	});
+</script>
+
+
 		<button id="btnScrollToTop">
 	<i class='fas fa-arrow-alt-circle-up' style='font-size:35px;color:white'></i>
 	</button>
@@ -24,6 +39,19 @@
 			<li><a href="games.html" class="link">GAMES</a></li>
 		</ul>
 	</nav>
+
+		<div class="sidebar">
+		<ul>
+			<li><a href="meditation.html">MEDITATION</a></li>
+			<li><a href="exercise.html" >EXERCISE</a></li>
+			<li><a href="yoga.html" >YOGA</a></li>
+			<li><a href="health.html" >HEALTH/FOOD</a></li>
+			<li><a href="games.html" >GAMES</a></li>
+		</ul>
+		<button class="sidebarBtn">
+			<span></span>
+		</button>
+	</div>
 	
 	<main>
 
