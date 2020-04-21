@@ -332,6 +332,14 @@ img {
     text-align:left;
 }
 
+.whitebackground_exercise {
+    background-color:white;
+    height:3300px;
+    width:100%;
+    margin: auto;
+    text-align:left;
+}
+
 .greyh2 {
     color:#333333;
     font-size: 30px;
@@ -357,6 +365,29 @@ img {
     background-color:white;
 
 
+}
+
+.item {
+    display: none;
+    width: 50%;
+    padding: 5px;
+    float: left;
+    min-height: 185px;
+    text-align: center;
+}
+
+.item.active {
+    display: block;
+}
+
+.item img {
+    display: block;
+    width: 100%;
+}
+
+select {
+    display: block;
+    width: 100%;
 }
 
 .video {

@@ -6,6 +6,19 @@
 </head>
 <body>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="main.js"></script>
+
+	<script>
+	$(document).ready(function(){
+		$(".menu").on("change", function(event) {
+		var choice = $(this).val();
+		$(".item.active").removeClass("active");
+		$("." + choice).addClass("active");
+	});
+	</script>
+
 		<button id="btnScrollToTop">
 	<i class='fas fa-arrow-alt-circle-up' style='font-size:35px;color:white'></i>
 	</button>
@@ -27,42 +40,75 @@
 	
 	<main>
 		
-		<div class="healthcontent">
-			<div class="picture-sm"></div>
-			<h2> Banana </h2>
-			<p> Bananas are a good source of potassium </p>
-			<div class="price-grid">
-				<span> $10.00 </span>
-				<span><a href="#" class="button">BUY</a></span>
-			</div>
+		<select class="menu">
+                    <option value="item">Filter...</option>
+                    <option value="fruit">Fruits</option>
+                    <option value="vegetable">Vegetable</option>
+                    <option value="meat">Meat</option>
+                </select>
+            </div>
+            <div class="item active fruit">
+                <img src="https://raw.githubusercontent.com/tc-mccarthy/edu/master/exercises/js/filter_foods/answer/img/apples.jpg" />
+                <h3>Apples</h3>
+            </div>
 
-			
-			<div class="picture-sm"></div>
-			<h2> Water </h2>
-			<p> Water keeps you hydrated <p>
-			<div class="price-grid">
-				<span> $11.00 </span>
-				<span><a href="#" class="button">BUY</a></span>
-			</div>
-			
-			<div class="picture-sm"></div>
-			<h2> Tofu </h2>
-			<p> Tofu gives you protein and energy</p>
-			<div class="price-grid">
-				<span> $13.00 </span>
-				<span><a href="#" class="button">BUY</a></span>
-			</div>
-			
-			<div class="picture-sm"></div>
-			<h2> Almonds </h2>
-			<p> Almonds also give you protein and energy!</p>
-			<div class="price-grid">
-				<span> $5.00 </span>
-				<span><a href="#" class="button">BUY</a></span>
-			</div>
-			
+            <div class="item active fruit">
+                <img src="https://raw.githubusercontent.com/tc-mccarthy/edu/master/exercises/js/filter_foods/answer/img/bananas.jpg" />
+                <h3>Bananas</h3>
+            </div>
 
-		</div>
+            <div class="item active vegetable">
+                <img src="https://raw.githubusercontent.com/tc-mccarthy/edu/master/exercises/js/filter_foods/answer/img/carrots.jpg" />
+                <h3>Carrots</h3>
+            </div>
+
+            <div class="item active fruit">
+                <img src="https://raw.githubusercontent.com/tc-mccarthy/edu/master/exercises/js/filter_foods/answer/img/cherries.jpg" />
+                <h3>Cherries</h3>
+            </div>
+
+            <div class="item active vegetable">
+                <img src="https://raw.githubusercontent.com/tc-mccarthy/edu/master/exercises/js/filter_foods/answer/img/cucumber.jpg" />
+                <h3>Cucumber</h3>
+            </div>
+
+            <div class="item active vegetable">
+                <img src="https://raw.githubusercontent.com/tc-mccarthy/edu/master/exercises/js/filter_foods/answer/img/onions.jpg" />
+                <h3>Onions</h3>
+            </div>
+
+            <div class="item active vegetable">
+                <img src="https://raw.githubusercontent.com/tc-mccarthy/edu/master/exercises/js/filter_foods/answer/img/peas.jpg" />
+                <h3>Peas</h3>
+            </div>
+
+            <div class="item active vegetable">
+                <img src="https://raw.githubusercontent.com/tc-mccarthy/edu/master/exercises/js/filter_foods/answer/img/peppers.jpg" />
+                <h3>Peppers</h3>
+            </div>
+
+            <div class="item active meat">
+                <img src="https://raw.githubusercontent.com/tc-mccarthy/edu/master/exercises/js/filter_foods/answer/img/steak.jpg" />
+                <h3>Steak</h3>
+            </div>
+
+            <div class="item active fruit">
+                <img src="https://raw.githubusercontent.com/tc-mccarthy/edu/master/exercises/js/filter_foods/answer/img/tangerine.jpg" />
+                <h3>Tangerine</h3>
+            </div>
+
+            <div class="item active vegetable">
+                <img src="https://raw.githubusercontent.com/tc-mccarthy/edu/master/exercises/js/filter_foods/answer/img/tomatoes.jpg" />
+                <h3>Tomatoes</h3>
+            </div>
+
+            <div class="item active fruit">
+                <img src="https://raw.githubusercontent.com/tc-mccarthy/edu/master/exercises/js/filter_foods/answer/img/watermelon.jpg" />
+                <h3>Watermelon</h3>
+            </div>
+        </div>
+
+
 
 	</main>
 	
