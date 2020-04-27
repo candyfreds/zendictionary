@@ -14,10 +14,10 @@
 
 
 	<script
-	  src="https://code.jquery.com/jquery-3.5.0.min.js"
-	  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
-	  crossorigin="anonymous">
-	</script>
+	src="https://code.jquery.com/jquery-3.5.0.min.js"
+	integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+	crossorigin="anonymous">
+</script>
 
 
 <script>
@@ -29,134 +29,199 @@
 	});
 </script>
 
+<script>
 
-	  	
-	<script>
-		$(document).ready(function(){
-			$('#show').hide()
-			$('#click').on('click', function () {
+	var colors = new Array(
+		[62,35,255],
+		[60,255,60],
+		[255,35,98],
+		[45,175,230],
+		[255,0,255],
+		[255,128,0]);
+
+	var step = 0;
+//color table indices for: 
+// current color left
+// next color left
+// current color right
+// next color right
+var colorIndices = [0,1,2,3];
+
+//transition speed
+var gradientSpeed = 0.002;
+
+function updateGradient()
+{
+	
+	if ( $===undefined ) return;
+	
+	var c0_0 = colors[colorIndices[0]];
+	var c0_1 = colors[colorIndices[1]];
+	var c1_0 = colors[colorIndices[2]];
+	var c1_1 = colors[colorIndices[3]];
+
+	var istep = 1 - step;
+	var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
+	var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
+	var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
+	var color1 = "rgb("+r1+","+g1+","+b1+")";
+
+	var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
+	var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
+	var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
+	var color2 = "rgb("+r2+","+g2+","+b2+")";
+
+	$('#gradient').css({
+		background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
+			background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
+		
+		step += gradientSpeed;
+		if ( step >= 1 )
+		{
+			step %= 1;
+			colorIndices[0] = colorIndices[1];
+			colorIndices[2] = colorIndices[3];
+			
+    //pick two new target color indices
+    //do not pick the same as the current one
+    colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+    colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+    
+}
+}
+
+setInterval(updateGradient,10);
+
+</script>
+
+
+
+<script>
+	$(document).ready(function(){
+		$('#show').hide()
+		$('#click').on('click', function () {
 			$('#show').toggle(1000);
-			});
 		});
-	</script>
+	});
+</script>
 
-	<script>
-		$(document).ready(function(){
-			$('#show_2').hide()
-			$('#click_2').on('click', function () {
+<script>
+	$(document).ready(function(){
+		$('#show_2').hide()
+		$('#click_2').on('click', function () {
 			$('#show_2').toggle(1000);
-			});
 		});
-	</script>
+	});
+</script>
 
-	<script>
-		$(document).ready(function(){
-			$('#show_3').hide()
-			$('#click_3').on('click', function () {
+<script>
+	$(document).ready(function(){
+		$('#show_3').hide()
+		$('#click_3').on('click', function () {
 			$('#show_3').toggle(1000);
-			});
 		});
-	</script>
+	});
+</script>
 
-	<script>
-		$(document).ready(function(){
-			$('#show_4').hide()
-			$('#click_4').on('click', function () {
+<script>
+	$(document).ready(function(){
+		$('#show_4').hide()
+		$('#click_4').on('click', function () {
 			$('#show_4').toggle(1000);
-			});
 		});
-	</script>
+	});
+</script>
 
-	<script>
-			const btnScrollToTop = document.querySelector("#btnScrollToTop");
+<script>
+	const btnScrollToTop = document.querySelector("#btnScrollToTop");
 
-			btnScrollToTop.addEventListener("click", function () {
-				window.scrollTo({
-					top:0,
-					left:0,
-					behavior:"smooth"
-				});
+	btnScrollToTop.addEventListener("click", function () {
+		window.scrollTo({
+			top:0,
+			left:0,
+			behavior:"smooth"
+		});
 
-			});
-	</script>
-	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	});
+</script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
+<div id="gradient"></div>
 
-	
-	<header>
-		<a href="index.html"><h1>ZEN DICTIONARY</h1></a>
-	</header>
-	
-	<nav>
-		<ul>
-			<li class="current"><a href="meditation.html">MEDITATION</a></li>
-			<li><a href="exercise.html" class="link">EXERCISE</a></li>
-			<li><a href="yoga.html" class="link">YOGA</a></li>
-			<li><a href="health.html" class="link">HEALTH/FOOD</a></li>
-			<li><a href="games.html" class="link">GAMES</a></li>
-		</ul>
-	</nav>
+<header>
+	<a href="index.html"><h1>ZEN DICTIONARY</h1></a>
+</header>
 
-		<div class="sidebar">
-		<ul>
-			<li><a href="meditation.html">MEDITATION</a></li>
-			<li><a href="exercise.html" >EXERCISE</a></li>
-			<li><a href="yoga.html" >YOGA</a></li>
-			<li><a href="health.html" >HEALTH/FOOD</a></li>
-			<li><a href="games.html" >GAMES</a></li>
-		</ul>
-		<button class="sidebarBtn">
-			<span></span>
-		</button>
+<nav>
+	<ul>
+		<li class="current"><a href="meditation.html">MEDITATION</a></li>
+		<li><a href="exercise.html" class="link">EXERCISE</a></li>
+		<li><a href="yoga.html" class="link">YOGA</a></li>
+		<li><a href="health.html" class="link">HEALTH/FOOD</a></li>
+		<li><a href="games.html" class="link">GAMES</a></li>
+	</ul>
+</nav>
+
+<div class="sidebar">
+	<ul>
+		<li><a href="meditation.html">MEDITATION</a></li>
+		<li><a href="exercise.html" >EXERCISE</a></li>
+		<li><a href="yoga.html" >YOGA</a></li>
+		<li><a href="health.html" >HEALTH/FOOD</a></li>
+		<li><a href="games.html" >GAMES</a></li>
+	</ul>
+	<button class="sidebarBtn">
+		<span></span>
+	</button>
+</div>
+
+<main>
+	<div class="meditationcontent">
+		<h2> What is meditation? </h2>
+		<p>Meditation is a practice where an individual uses a technique – such as mindfulness, or focusing the mind on a particular object, thought, or activity – to train attention and awareness, and achieve a mentally clear and emotionally calm and stable state. </p>
+		
+		<h2> What are the benefits of meditation? </h2>
+		<p>There are thousands of studies that have shown mindfulness meditation can positively impact mental and physical health. Whether it’s by reducing stress, improving sleep, increasing focus, or improving relationships, research shows mindfulness works. While the research on mindfulness, especially digital mindfulness programs, is still growing, there is evidence to support the use of mindfulness training for many outcomes.</p>
 	</div>
 	
-	<main>
-		<div class="meditationcontent">
-			<h2> What is meditation? </h2>
-			<p>Meditation is a practice where an individual uses a technique – such as mindfulness, or focusing the mind on a particular object, thought, or activity – to train attention and awareness, and achieve a mentally clear and emotionally calm and stable state. </p>
-			
-			<h2> What are the benefits of meditation? </h2>
-			<p>There are thousands of studies that have shown mindfulness meditation can positively impact mental and physical health. Whether it’s by reducing stress, improving sleep, increasing focus, or improving relationships, research shows mindfulness works. While the research on mindfulness, especially digital mindfulness programs, is still growing, there is evidence to support the use of mindfulness training for many outcomes.</p>
-		</div>
-		
-		<div class="whitebackground">
-			<div class="meditationcontenttwo">	
-				<h2 class="greyh2"> How to meditate: </h2>
-				<h3 class="h3">Click the Steps to learn more! </h3>
+	<div class="whitebackground">
+		<div class="meditationcontenttwo">	
+			<h2 class="greyh2"> How to meditate: </h2>
+			<h3 class="h3">Click the Steps to learn more! </h3>
 
 
-				<button id="click" class="circles">SIT</button>
-				<button id="click_2" class="circles">SCAN</button>
-				<button id="click_3" class="circles">BREATHE</button>
-				<button id="click_4" class="circles">WANDER</button>
+			<button id="click" class="circles">SIT</button>
+			<button id="click_2" class="circles">SCAN</button>
+			<button id="click_3" class="circles">BREATHE</button>
+			<button id="click_4" class="circles">WANDER</button>
 
 
-				<div id="show">
-					<h3 class="greyh3">Step 1: Sit</h3>
-					<p>Sit comfortably upright on a chair, feet on the floor, hands resting on your thighs. (If you prefer, you can sit on the floor.) Take two or three deep breaths, then close your eyes.</p>
-				</div>
-
-				<div id="show_2">
-					<h3 class="greyh3">Step 2: Scan</h3>
-					<p>Starting from the top of the head and moving down, mentally scan your body, noticing any tension in your muscles, places of comfort or discomfort, the feel of the floor beneath your feet. Begin to pay attention to the natural rhythm of your breath.</p>
-				</div>
-
-				<div id="show_3">
-					<h3 class="greyh3">Step 3: Breathe </h3>
-					<p>As you become more aware of your breath, follow the rising and falling sensation without changing it in any way, silently counting breaths.
-
-					Inevitably, your mind will wander. This is one of the first lessons of meditation. When you notice that a thought has distracted you, let go of it and gently return your attention to your breath. Over time, you'll learn to step back and just observe the thoughts. The same goes for sounds: Rather than trying to block them out, let them come and go.</p>
-				</div>
-
-				<div id="show_4">
-					<h3 class="greyh3">Step 4: Wander</h3>
-					<p>Take a few seconds to allow your mind to do whatever it wants. (You may find your mind is very quiet.) Noticing the sounds around you and bringing your attention back to the body, gently open your eyes.</p>
-				</div>
-			
+			<div id="show">
+				<h3 class="greyh3">Step 1: Sit</h3>
+				<p>Sit comfortably upright on a chair, feet on the floor, hands resting on your thighs. (If you prefer, you can sit on the floor.) Take two or three deep breaths, then close your eyes.</p>
 			</div>
-		</div>
 
-	</main>
+			<div id="show_2">
+				<h3 class="greyh3">Step 2: Scan</h3>
+				<p>Starting from the top of the head and moving down, mentally scan your body, noticing any tension in your muscles, places of comfort or discomfort, the feel of the floor beneath your feet. Begin to pay attention to the natural rhythm of your breath.</p>
+			</div>
+
+			<div id="show_3">
+				<h3 class="greyh3">Step 3: Breathe </h3>
+				<p>As you become more aware of your breath, follow the rising and falling sensation without changing it in any way, silently counting breaths.
+
+				Inevitably, your mind will wander. This is one of the first lessons of meditation. When you notice that a thought has distracted you, let go of it and gently return your attention to your breath. Over time, you'll learn to step back and just observe the thoughts. The same goes for sounds: Rather than trying to block them out, let them come and go.</p>
+			</div>
+
+			<div id="show_4">
+				<h3 class="greyh3">Step 4: Wander</h3>
+				<p>Take a few seconds to allow your mind to do whatever it wants. (You may find your mind is very quiet.) Noticing the sounds around you and bringing your attention back to the body, gently open your eyes.</p>
+			</div>
+			
+		</div>
+	</div>
+
+</main>
 
 </body>
 </html>

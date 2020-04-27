@@ -9,136 +9,132 @@
 <body class="body">
 	
 	<script src="script.js"></script>
-	<script src="https://code.jquery.com/jquery-3.5.0.min.js"
-  	integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
-  	crossorigin="anonymous">
-  	</script>
+	<script src="https://code.jquery.com/jquery-3.5.0.min.js">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
 	<button id="btnScrollToTop">
-	<i class='fas fa-arrow-alt-circle-up' style='font-size:35px;color:white'></i>
+		<i class='fas fa-arrow-alt-circle-up' style='font-size:35px;color:white'></i>
 	</button>
 
 	<script>
-	$(document).ready(function(){
-		$('#tip').click(function(){
-			$('#quote_1').text('This is my new quote')
-		})
-	});
-	</script>
-
-	<script>
-	$(document).ready(function(){
-		$('.sidebarBtn').click(function(){
-			$('.sidebar').toggleClass('active');
-			$('.sidebarBtn').toggleClass('toggle');
-		})
-	});
+		$(document).ready(function(){
+			$('#tip').click(function(){
+				$('#quote_1').text('This is my new quote')
+			})
+		});
 	</script>
 
 	<script>
 		$(document).ready(function(){
-		var quoteSource=[
-		{
-			quote: "Start by doing what's necessary; then do what's possible; and suddenly you are doing the impossible.",
+			$('.sidebarBtn').click(function(){
+				$('.sidebar').toggleClass('active');
+				$('.sidebarBtn').toggleClass('toggle');
+			})
+		});
+	</script>
+
+	<script>
+		$(document).ready(function(){
+			var quoteSource=[
+			{
+				quote: "Start by doing what's necessary; then do what's possible; and suddenly you are doing the impossible.",
+
+			},
+			{
+				quote:"Believe you can and you're halfway there.",
+
+			},
+			{
+				quote:"It does not matter how slowly you go as long as you do not stop.",
+
+			},
+			{
+				quote:"Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.",
+
+			},
 			
-	    },
-	    {
-	    	quote:"Believe you can and you're halfway there.",
-	    	
-	    },
-	    {
-	    	quote:"It does not matter how slowly you go as long as you do not stop.",
-	    	
-	    },
-	    {
-	    	quote:"Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.",
-	    	
-	    },
-	    {
-	    	quote:"The will to win, the desire to succeed, the urge to reach your full potential... these are the keys that will unlock the door to personal excellence.",
-	    	
-	    },
-	    {
-	    	quote:"Don't watch the clock; do what it does. Keep going.",
-	    	
-	    },
-	    {
-	    	quote:"A creative man is motivated by the desire to achieve, not by the desire to beat others.",
-	    	
-	    },
-	    {
-	    	quote:"A creative man is motivated by the desire to achieve, not by the desire to beat others.",
-	    	
-	    },
-	    {
-	    	quote:"Expect problems and eat them for breakfast.",
-	    	
-	    },
-	    {
-	    	quote:"Start where you are. Use what you have. Do what you can.",
-	    	
-	    },
-	    {
-	    	quote:"Ever tried. Ever failed. No matter. Try Again. Fail again. Fail better.",
-	    	
-	    },
-	    {
-	    	quote:"Be yourself; everyone else is already taken.",
-	    	
-	    },
-	    {
-	    	quote:"Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
-	    	
-	    },
-	    {
-	    	quote:"Always remember that you are absolutely unique. Just like everyone else.",
-	    	
-	    },
-	    {
-	    	quote:"Do not take life too seriously. You will never get out of it alive.",
-	    	
-	    },
-	    {
-	    	quote:"People who think they know everything are a great annoyance to those of us who do.",
-	    	
-	    },
-	    {
-	    	quote:"Procrastination is the art of keeping up with yesterday.",
-	    	
-	    },
-	    {
-	    	quote:"Get your facts first, then you can distort them as you please.",
-	    	
-	    },
-	    {
-	    	quote:"A day without sunshine is like, you know, night.",
-	    	
-	    },
-	    {
-	    	quote:"My grandmother started walking five miles a day when she was sixty. She's ninety-seven now, and we don't know where the hell she is.",
-	    	
-	    },
-	    {
-	    	quote:"Don't sweat the petty things and don't pet the sweaty things.",
-	    	
-	    },
-	    {
-	    	quote:"Always do whatever's next.",
-	    	
-	    },
-	    {
-	    	quote:"Atheism is a non-prophet organization.",
-	    	
-	    },
-	    {
-	    	quote:"Hapiness is not something ready made. It comes from your own actions.",
-	    	
-	    }
+			{
+				quote:"Don't watch the clock; do what it does. Keep going.",
 
-	];
-		
+			},
+			{
+				quote:"A creative man is motivated by the desire to achieve, not by the desire to beat others.",
 
-		$('#tip').click(function(evt){
+			},
+			{
+				quote:"A creative man is motivated by the desire to achieve, not by the desire to beat others.",
+
+			},
+			{
+				quote:"Expect problems and eat them for breakfast.",
+
+			},
+			{
+				quote:"Start where you are. Use what you have. Do what you can.",
+
+			},
+			{
+				quote:"Ever tried. Ever failed. No matter. Try Again. Fail again. Fail better.",
+
+			},
+			{
+				quote:"Be yourself; everyone else is already taken.",
+
+			},
+			{
+				quote:"Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+
+			},
+			{
+				quote:"Always remember that you are absolutely unique. Just like everyone else.",
+
+			},
+			{
+				quote:"Do not take life too seriously. You will never get out of it alive.",
+
+			},
+			{
+				quote:"People who think they know everything are a great annoyance to those of us who do.",
+
+			},
+			{
+				quote:"Procrastination is the art of keeping up with yesterday.",
+
+			},
+			{
+				quote:"Get your facts first, then you can distort them as you please.",
+
+			},
+			{
+				quote:"A day without sunshine is like, you know, night.",
+
+			},
+			{
+				quote:"My grandmother started walking five miles a day when she was sixty. She's ninety-seven now, and we don't know where the hell she is.",
+
+			},
+			{
+				quote:"Don't sweat the petty things and don't pet the sweaty things.",
+
+			},
+			{
+				quote:"Always do whatever's next.",
+
+			},
+			{
+				quote:"Atheism is a non-prophet organization.",
+
+			},
+			{
+				quote:"Hapiness is not something ready made. It comes from your own actions.",
+
+			}
+
+			];
+
+
+			$('#tip').click(function(evt){
 			//define the containers of the info we target
 			var quote = $('#tip').text();
 			var quoteGenius = $('#quote').text();
@@ -149,121 +145,191 @@
 			var randomNumber= Math.floor(Math.random()*sourceLength);
 			//set a new quote
 			for(i=0;i<=sourceLength;i+=1){
-			var newQuoteText = quoteSource[randomNumber].quote;
-			var newQuoteGenius = quoteSource[randomNumber].name;
+				var newQuoteText = quoteSource[randomNumber].quote;
+				
 			//console.log(newQuoteText,newQuoteGenius);
-      var timeAnimation = 500;
-      var quoteContainer = $('#quoteContainer');
+			var timeAnimation = 500;
+			var quoteContainer = $('#quoteContainer');
       //fade out animation with callback
       quoteContainer.fadeOut(timeAnimation, function(){
-        quoteContainer.html('');
-				quoteContainer.append('<p>'+newQuoteText+'</p>'+'<p id="quoteGenius">'+'-								'+newQuoteGenius+'</p>');
+      	quoteContainer.html('');
+      	quoteContainer.append('<p>'+newQuoteText+'</p>'+'<p id="quoteGenius">'+'								</p>');
         //fadein animation.
         quoteContainer.fadeIn(timeAnimation);
-      });  
-			
-			break;
+    });  
+
+      break;
 		};//end for loop
-	
+
 	});//end quoteButton function
-		
-		
+
+
 });//end document ready
+</script>
+
+
+<script>
+
+	var colors = new Array(
+		[62,35,255],
+		[60,255,60],
+		[255,35,98],
+		[45,175,230],
+		[255,0,255],
+		[255,128,0]);
+
+	var step = 0;
+//color table indices for: 
+// current color left
+// next color left
+// current color right
+// next color right
+var colorIndices = [0,1,2,3];
+
+//transition speed
+var gradientSpeed = 0.002;
+
+function updateGradient()
+{
+
+	if ( $===undefined ) return;
+
+	var c0_0 = colors[colorIndices[0]];
+	var c0_1 = colors[colorIndices[1]];
+	var c1_0 = colors[colorIndices[2]];
+	var c1_1 = colors[colorIndices[3]];
+
+	var istep = 1 - step;
+	var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
+	var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
+	var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
+	var color1 = "rgb("+r1+","+g1+","+b1+")";
+
+	var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
+	var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
+	var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
+	var color2 = "rgb("+r2+","+g2+","+b2+")";
+
+	$('#gradient').css({
+		background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
+			background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
+
+		step += gradientSpeed;
+		if ( step >= 1 )
+		{
+			step %= 1;
+			colorIndices[0] = colorIndices[1];
+			colorIndices[2] = colorIndices[3];
+
+    //pick two new target color indices
+    //do not pick the same as the current one
+    colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+    colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+    
+}
+}
+
+setInterval(updateGradient,10);
+
 </script>
 
 
 
 
-	
-	<header>
-		<a href="index.html"><h1>ZEN DICTIONARY</h1></a>
-	</header>
 
-	
-	<nav>
-		<ul>
-			<li><a href="meditation.html">MEDITATION</a></li>
-			<li><a href="exercise.html" >EXERCISE</a></li>
-			<li><a href="yoga.html" >YOGA</a></li>
-			<li><a href="health.html" >HEALTH/FOOD</a></li>
-			<li><a href="games.html" >GAMES</a></li>
-					
-		</ul>
-	</nav>
+<div id="gradient"></div>
 
-	<div class="sidebar">
-		<ul>
-			<li><a href="meditation.html">MEDITATION</a></li>
-			<li><a href="exercise.html" >EXERCISE</a></li>
-			<li><a href="yoga.html" >YOGA</a></li>
-			<li><a href="health.html" >HEALTH/FOOD</a></li>
-			<li><a href="games.html" >GAMES</a></li>
-		</ul>
-		<button class="sidebarBtn">
-			<span></span>
-		</button>
+<header>
+	<a href="index.html"><h1>ZEN DICTIONARY</h1></a>
+</header>
+
+
+<nav>
+	<ul>
+		<li><a href="meditation.html">MEDITATION</a></li>
+		<li><a href="exercise.html" >EXERCISE</a></li>
+		<li><a href="yoga.html" >YOGA</a></li>
+		<li><a href="health.html" >HEALTH/FOOD</a></li>
+		<li><a href="games.html" >GAMES</a></li>
+
+	</ul>
+</nav>
+
+<div class="sidebar">
+	<ul>
+		<li><a href="meditation.html">MEDITATION</a></li>
+		<li><a href="exercise.html" >EXERCISE</a></li>
+		<li><a href="yoga.html" >YOGA</a></li>
+		<li><a href="health.html" >HEALTH/FOOD</a></li>
+		<li><a href="games.html" >GAMES</a></li>
+	</ul>
+	<button class="sidebarBtn">
+		<span></span>
+	</button>
+</div>
+
+
+
+<main>
+	<p class="description">ZEN DICTIONARY aims to supply recources for those interested in learning more about health, fitness and meditation from the comfort of their own home.</p>
+	<div class="center">
+		<button id="tip" class="todaystip">Click for a tip </button>
+	</div>
+	<div class="greenbox">
+		<div id="quoteContainer">
+			<div id="quote">
+				
+			</div>
+		</div>
 	</div>
 
-	
+	<br>
+	<br>
 
-	<main>
-		<p class="description">ZEN DICTIONARY aims to supply recources for those interested in learning more about health, fitness and meditation from the comfort of their own home.</p>
-		<div class="center">
-			<button id="tip" class="todaystip">Click for a tip </button>
-		</div>
-		<div class="greenbox">
-			<div id="quoteContainer">
-				<div id="quote">
-					<p id="quoteGenius"></p>
-				</div>
+
+
+	<div class="maincontent">
+		<div class="two_column_grid">
+			<div class="column">
+				<a href="meditation.html"><h2 class="front">Meditation</h2></a>
+				<p class="indexp">There are thousands of studies that have shown mindfulness meditation can positively impact mental and physical health. Whether it’s by reducing stress, improving sleep, increasing focus, or improving relationships, research shows mindfulness works.</p>
+
+				<p class="indexp">While the research on mindfulness, especially digital mindfulness programs, is still growing, there is evidence to support the use of mindfulness training for many outcomes.</p>
+
+				<a href="health.html"><h2 class="front"> Health/Food </h2></a>
+				<p class="indexp">“Eat the rainbow” is a phrase that many nutritionists use to help remind people to incorporate more fruits and veggies in their diet. Naturally colorful foods like blueberries and red bell peppers contain antioxidants, vitamins, fiber, and many other nutrients that support healthy growth, and help prevent problems such as obesity, dental cavities, iron deficiency, and osteoporosis. </p>
+
+				<p class="indexp">For example, yellow and orange fruits and vegetables are abundant in vitamins C and A, which prevent cell damage, support healthy joints and eyesight, and lower cholesterol. Green fruits and veggies, such as spinach, asparagus, and avocado, are high in vitamins K, B, and E, which improve digestion and support healthy bones. Purple produce is high in vitamins C and K, which help with memory and support a healthy heart.</p>
+			</div>
+
+
+			<div class="column">
+				<a href="yoga.html"><h2 class="front"> Yoga </h2></a>
+				<p class="indexp">Yoga develops inner awareness. It focuses your attention on your body's abilities at the present moment. It helps develop breath and strength of mind and body. It's not about physical appearance.oga studios typically don't have mirrors. This is so people can focus their awareness inward rather than how a pose — or the people around them — looks.</p>
+
+				<p class="indexp">Surveys have found that those who practiced yoga were more aware of their bodies than people who didn't practice yoga. They were also more satisfied with and less critical of their bodies. For these reasons, yoga has become an integral part in the treatment of eating disorders and programs that promote positive body image and self-esteem.</p>
+
+				<a href="exercise.html"><h2 class="front"> Exercise </h2></a>
+				<p class="indexp">Exercising regularly can improve your mood and reduce feelings of anxiety and depression. Exercise is crucial to supporting a fast metabolism and burning more calories per day. It also helps you maintain your muscle mass and weight loss. </p>
+
+				<p class="indexp">Physical activity helps you build muscles and strong bones. It may also help prevent osteoporosis. Engaging in regular physical activity can increase your energy levels. This is true even in people with persistent fatigue and those suffering from serious illnesses.</p>
 			</div>
 		</div>
+	</div>
 
-<br>
-<br>
+</main>
 
-		<div class="maincontent">
-			<div class="two_column_grid">
-				<div class="column">
-					<a href="meditation.html"><h2 class="front">Meditation</h2></a>
-					<p class="indexp">There are thousands of studies that have shown mindfulness meditation can positively impact mental and physical health. Whether it’s by reducing stress, improving sleep, increasing focus, or improving relationships, research shows mindfulness works.</p>
-
-					<p class="indexp">While the research on mindfulness, especially digital mindfulness programs, is still growing, there is evidence to support the use of mindfulness training for many outcomes.</p>
-
-					<a href="health.html"><h2 class="front"> Health/Food </h2></a>
-					<p class="indexp">“Eat the rainbow” is a phrase that many nutritionists use to help remind people to incorporate more fruits and veggies in their diet. Naturally colorful foods like blueberries and red bell peppers contain antioxidants, vitamins, fiber, and many other nutrients that support healthy growth, and help prevent problems such as obesity, dental cavities, iron deficiency, and osteoporosis. </p>
-
-					<p class="indexp">For example, yellow and orange fruits and vegetables are abundant in vitamins C and A, which prevent cell damage, support healthy joints and eyesight, and lower cholesterol. Green fruits and veggies, such as spinach, asparagus, and avocado, are high in vitamins K, B, and E, which improve digestion and support healthy bones. Purple produce is high in vitamins C and K, which help with memory and support a healthy heart.</p>
-				</div>
-
-
-				<div class="column">
-					<a href="yoga.html"><h2 class="front"> Yoga </h2></a>
-					<p class="indexp">Yoga develops inner awareness. It focuses your attention on your body's abilities at the present moment. It helps develop breath and strength of mind and body. It's not about physical appearance.oga studios typically don't have mirrors. This is so people can focus their awareness inward rather than how a pose — or the people around them — looks.</p>
-
-					<p class="indexp">Surveys have found that those who practiced yoga were more aware of their bodies than people who didn't practice yoga. They were also more satisfied with and less critical of their bodies. For these reasons, yoga has become an integral part in the treatment of eating disorders and programs that promote positive body image and self-esteem.</p>
-
-					<a href="exercise.html"><h2 class="front"> Exercise </h2></a>
-					<p class="indexp">Exercising regularly can improve your mood and reduce feelings of anxiety and depression. Exercise is crucial to supporting a fast metabolism and burning more calories per day. It also helps you maintain your muscle mass and weight loss. </p>
-
-					<p class="indexp">Physical activity helps you build muscles and strong bones. It may also help prevent osteoporosis. Engaging in regular physical activity can increase your energy levels. This is true even in people with persistent fatigue and those suffering from serious illnesses.</p>
-				</div>
-			</div>
-		</div>
-
-	</main>
-	
 <script>
-		const btnScrollToTop = document.querySelector("#btnScrollToTop");
+	const btnScrollToTop = document.querySelector("#btnScrollToTop");
 
-		btnScrollToTop.addEventListener("click", function () {
-			window.scrollTo({
-				top:0,
-				left:0,
-				behavior:"smooth"
-			});
-
+	btnScrollToTop.addEventListener("click", function () {
+		window.scrollTo({
+			top:0,
+			left:0,
+			behavior:"smooth"
 		});
+
+	});
 </script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </body>
