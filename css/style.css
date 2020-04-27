@@ -202,6 +202,83 @@ h2 {
     background-color:#35ea97;
 }
 
+.games {
+    height:100%;
+    width:100%;
+    background-color:white;
+    border-radius: 10px;
+    cursor:pointer;
+    justify-content: center;
+    align-content: center;
+    text-align:center;
+
+}
+
+.game {
+    width: 600px;
+    height: 600px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.go {
+    font-family:helvetica;
+    color: white;
+    font-size: 100px;
+    z-index: 999;
+    top: 50%;
+    visibility: hidden;
+}
+
+.body {
+    width:100%;
+    text-align:center;
+    align-content: center;
+    justify-content: center;
+
+}
+button {
+
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.game_image {
+    width:100%;
+    height:100%;
+    border-radius:10px;
+}
+
+.game_title {
+    text-align:center;
+    font-family:helvetica;
+    font-size:30px;
+    color:white;
+    text-decoration: none;
+}
+
+.box {
+    border: 1px solid white;
+    background-color: grey;
+    width: 33%;
+    height: 33%;
+    float: left;
+    transition: background-color 0.1s ease-in;
+}
+
+.clicked1 {
+    background-color: #333333;
+}
+
+.clicked2 {
+    background-color: #35ea97;
+}
+
+canvas {
+  border: 2px solid rgb(151, 149, 149);
+}
+
+
 
 
 body {
@@ -294,6 +371,26 @@ p.description {
 }
 
 .todaystip:focus {
+    outline:none;
+}
+
+.reset {
+    background-color:#000000;
+    color:white;
+    width:170px;
+    height:60px;
+    border-radius:20px;
+    border:none;
+    font-size:20px;
+    font-family:helvetica;
+}
+
+.reset:hover {
+    background-color:#EAC747;
+    cursor:pointer;
+}
+
+.reset:focus {
     outline:none;
 }
 
@@ -732,7 +829,7 @@ p  {
     margin-left:20px;
 
 
-}
+    }
 
     h2.food {
         font-family:helvetica;
@@ -750,6 +847,8 @@ p  {
     nav {
         display:none;
     }
+
+
 }
 
 @media only screen and (max-width:520px) {
