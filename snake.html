@@ -6,20 +6,21 @@
 </head>
 <body>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
-  <script src="main.js"></script>
+<!-- side bar nav -->
+<script>
+  $(document).ready(function(){
+    $('.sidebarBtn').click(function(){
+      $('.sidebar').toggleClass('active');
+      $('.sidebarBtn').toggleClass('toggle');
+    })
+  });
+</script>
 
-
-  <script>
-    $(document).ready(function(){
-      $('.sidebarBtn').click(function(){
-        $('.sidebar').toggleClass('active');
-        $('.sidebarBtn').toggleClass('toggle');
-      })
-    });
-  </script>
-
+<!-- Snake game -->
 <script>
 /**
  * Namespace
@@ -247,25 +248,8 @@ window.onload = function() {
 };
 </script>
   
-
-  <script>
-   $(document).ready(function(){
-    $(".menu").on("change", function(event) {
-      var choice = $(this).val();
-      $(".item.active").removeClass("active");
-      $("." + choice).addClass("active");
-    });
-  </script>
-
-  <script>
-    $(document).ready(function(){
-      $(".card").click(function() {
-        $(this).toggleClass("active");
-      });
-    });
-  </script>
-
-  <script>
+<!-- background gradient -->
+<script>
 
     var colors = new Array(
       [62,35,255],
@@ -373,7 +357,7 @@ setInterval(updateGradient,10);
 
 <div class="body">
 
-  <h2> TicTacToe </h2>
+  <h2> Snake </h2>
   <canvas id="stage" height="400" width="520"></canvas>
 
 

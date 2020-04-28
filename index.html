@@ -6,36 +6,33 @@
 
 </head>
 
-	<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-	<script src="script.js"></script>
-	
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
-	<button id="btnScrollToTop">
-		<i class='fas fa-arrow-alt-circle-up' style='font-size:35px;color:white'></i>
-	</button>
+<!-- click for tip button -->
+<script>
+	$(document).ready(function(){
+		$('#tip').click(function(){
+			$('#quote_1').text('This is my new quote')
+		})
+	});
+</script>
 
-	<script>
-		$(document).ready(function(){
-			$('#tip').click(function(){
-				$('#quote_1').text('This is my new quote')
-			})
-		});
-	</script>
+<!-- side bar nav -->
+<script>
+	$(document).ready(function(){
+		$('.sidebarBtn').click(function(){
+			$('.sidebar').toggleClass('active');
+			$('.sidebarBtn').toggleClass('toggle');
+		})
+	});
+</script>
 
-	<script>
-		$(document).ready(function(){
-			$('.sidebarBtn').click(function(){
-				$('.sidebar').toggleClass('active');
-				$('.sidebarBtn').toggleClass('toggle');
-			})
-		});
-	</script>
-
-	<script>
-		$(document).ready(function(){
-			var quoteSource=[
+<!-- quote generator -->
+<script>
+	$(document).ready(function(){
+		var quoteSource=[
 			{
 				quote: "Start by doing what's necessary; then do what's possible; and suddenly you are doing the impossible.",
 
@@ -130,25 +127,25 @@
 
 			}
 
-			];
+		];
 
 
-			$('#tip').click(function(evt){
-			//define the containers of the info we target
-			var quote = $('#tip').text();
-			var quoteGenius = $('#quote').text();
-			//prevent browser's default action
-			evt.preventDefault();
-			//getting a new random number to attach to a quote and setting a limit
-			var sourceLength = quoteSource.length;
-			var randomNumber= Math.floor(Math.random()*sourceLength);
-			//set a new quote
-			for(i=0;i<=sourceLength;i+=1){
-				var newQuoteText = quoteSource[randomNumber].quote;
+	$('#tip').click(function(evt){
+		//define the containers of the info we target
+		var quote = $('#tip').text();
+		var quoteGenius = $('#quote').text();
+		//prevent browser's default action
+		evt.preventDefault();
+		//getting a new random number to attach to a quote and setting a limit
+		var sourceLength = quoteSource.length;
+		var randomNumber= Math.floor(Math.random()*sourceLength);
+		//set a new quote
+		for(i=0;i<=sourceLength;i+=1){
+			var newQuoteText = quoteSource[randomNumber].quote;
 				
-			//console.log(newQuoteText,newQuoteGenius);
-			var timeAnimation = 500;
-			var quoteContainer = $('#quoteContainer');
+		//console.log(newQuoteText,newQuoteGenius);
+		var timeAnimation = 500;
+		var quoteContainer = $('#quoteContainer');
       //fade out animation with callback
       quoteContainer.fadeOut(timeAnimation, function(){
       	quoteContainer.html('');
@@ -156,17 +153,15 @@
         //fadein animation.
         quoteContainer.fadeIn(timeAnimation);
     });  
-
       break;
-		};//end for loop
+			};//end for loop
 
-	});//end quoteButton function
+		});//end quoteButton function
 
-
-});//end document ready
+	});//end document ready
 </script>
 
-
+<!-- background gradient -->
 <script>
 
 	var colors = new Array(
@@ -234,7 +229,9 @@ setInterval(updateGradient,10);
 
 
 
-
+<button id="btnScrollToTop">
+		<i class='fas fa-arrow-alt-circle-up' style='font-size:35px;color:white'></i>
+</button>
 
 <div id="gradient"></div>
 
