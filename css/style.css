@@ -87,7 +87,7 @@ nav {
 }
 
 
-nav ul {
+nav ul  {
     list-style-type: none;
     text-align: center;
     font-family: 'Quicksand', sans-serif;
@@ -141,7 +141,7 @@ nav li a {
     position:absolute;
     top:80px;
     right:-200px;
-    background-color:white;
+    background-color:none;
     width:200px;
     height:100%;
     transition: .3s;
@@ -260,7 +260,7 @@ nav li a {
 }
 
 .leftyoujerk {
-    left: 150px !important;
+    left: 130px !important;
 }
 
 .games {
@@ -764,14 +764,11 @@ h2.align {
 .grid_container {
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    grid-gap:2em;
+    grid-gap:3em;
     margin:3em;
     grid-auto-rows:300px;
 
 }
-
-
-
 
 
 
