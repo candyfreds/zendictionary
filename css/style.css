@@ -145,10 +145,12 @@ nav li a {
     width:200px;
     height:100%;
     transition: .3s;
+
 }
 
 .active {
     right:0px;
+
 }
 
 .sidebar li 
@@ -163,6 +165,7 @@ nav li a {
     margin:top:2px;
     margin-bottom:2px;
     text-align:center;
+    
 }
 
 .sidebar li:hover 
