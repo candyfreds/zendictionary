@@ -139,7 +139,7 @@ nav li a {
 
 .sidebar {
     position:absolute;
-    top:0px;
+    top:80px;
     right:-200px;
     background-color:white;
     width:200px;
@@ -169,7 +169,7 @@ nav li a {
 {  background-color:#2abd79;
 }
 
-ul {
+.sidebar ul {
     margin:0;
     padding:0;
 }
@@ -186,9 +186,10 @@ ul {
 }
 
 .sidebarBtn {
+    display:none;
     position:absolute;
-    top:10px;
-    left:-50px;
+    top:-90px;
+    left:-70px;
     width:50px;
     height:50px;
     box-sizing:border-box;
@@ -201,11 +202,13 @@ ul {
 .sidebarBtn span {
     display:block;
     width:35px;
-    height:3px;
+    height:5px;
     background:white;
     position:absolute;
     top:24px;
     transition:.3s;
+    border-radius: 10px;
+
 
 }
 
@@ -215,9 +218,10 @@ ul {
     top:-10px;
     left:0;
     width:100%;
-    height:3px;
+    height:5px;
     background:white;
     transition: .3s;
+    border-radius: 10px;
 
 }
 
@@ -227,9 +231,10 @@ ul {
     top:10px;
     left:0;
     width:100%;
-    height:3px;
+    height:5px;
     background:white;
     transition: .3s;
+    border-radius: 10px;
 
 }
 
@@ -252,6 +257,10 @@ ul {
 
 .current {
     background-color:#35ea97;
+}
+
+.leftyoujerk {
+    left: 150px !important;
 }
 
 .games {
@@ -478,6 +487,8 @@ p.description {
     background: white;
     color: #333;
     border-radius: 10px;
+    text-align:center;
+    overflow:hidden;
 }
 
 .back_card {
@@ -494,7 +505,7 @@ p.description {
 }
 
 .front_card img {
-    width:100%;
+    width:auto;
     height:100%;
     border-radius:10px;
 
@@ -769,26 +780,22 @@ h2.align {
 
 
 /*MEDIA QUERIES*/
+@media only screen and (max-width:1200px) {
 
-@media only screen and (max-width:1190px) {
-
-    h2.food {
-        font-family:helvetica;
-        font-size:30px;
-        color:#333333;
+    .grid_container {
+        grid-template-columns: repeat(3, 1fr)
 
     }
+}
 
-    div.foodbio {
-        font-family: helvetica;
-        font-size: 12px;
-        color: #a6a6a6;
+@media only screen and (max-width:1333px) {
 
-    }
-
-    nav {
+        nav {
        display:none;
    }
+       .sidebarBtn {
+    display:block;
+    }
 }
 
 
@@ -801,7 +808,7 @@ h2.align {
     }
 
     .grid_container {
-        grid-template-columns: repeat(3, 1fr)
+        grid-template-columns: repeat(2, 1fr)
 
     }
 
@@ -811,37 +818,15 @@ h2.align {
         margin-top:20px;
         margin-left:20px;
 
-
     }
-
-    h2.food {
-        font-family:helvetica;
-        font-size:30px;
-        color:#333333;
-
-    }
-
-    div.foodbio {
-        font-family: helvetica;
-        font-size: 10px;
-        color: #a6a6a6;
-
-    }
-    nav {
-        display:none;
-    }
-
 
 }
 
 @media only screen and (max-width:520px) {
     .grid_container {
-        grid-template-columns: repeat(2, 1fr)
+        grid-template-columns: repeat(1, 1fr)
 
     }
-    nav {
-       display:none;
-   }
 
    #btnScrollToTop {
     position:fixed;

@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+<title>Document</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 
 <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-<script src="script.js"></script>
+<script src="js/script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
 
-  <script>
-    $(document).ready(function(){
-      $('.sidebarBtn').click(function(){
-        $('.sidebar').toggleClass('active');
-        $('.sidebarBtn').toggleClass('toggle');
-      })
+<script>
+  $(document).ready(function(){
+    $('.sidebarBtn').click(function(){
+      $('.sidebar').toggleClass('active');
+      $('.sidebarBtn').toggleClass('toggle');
+    })
+  });
+</script>
+
+
+<script>
+ $(document).ready(function(){
+  $(".menu").on("change", function(event) {
+    var choice = $(this).val();
+    $(".item.active").removeClass("active");
+    $("." + choice).addClass("active");
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+    $(".card").click(function() {
+      $(this).toggleClass("active");
     });
-  </script>
+  });
+</script>
 
+<script>
 
-  <script>
-   $(document).ready(function(){
-    $(".menu").on("change", function(event) {
-      var choice = $(this).val();
-      $(".item.active").removeClass("active");
-      $("." + choice).addClass("active");
-    });
-  </script>
+  var colors = new Array(
+    [62,35,255],
+    [60,255,60],
+    [255,35,98],
+    [45,175,230],
+    [255,0,255],
+    [255,128,0]);
 
-  <script>
-    $(document).ready(function(){
-      $(".card").click(function() {
-        $(this).toggleClass("active");
-      });
-    });
-  </script>
-
-  <script>
-
-    var colors = new Array(
-      [62,35,255],
-      [60,255,60],
-      [255,35,98],
-      [45,175,230],
-      [255,0,255],
-      [255,128,0]);
-
-    var step = 0;
+  var step = 0;
 //color table indices for: 
 // current color left
 // next color left
@@ -61,42 +61,42 @@ var gradientSpeed = 0.002;
 
 function updateGradient()
 {
+
+if ( $===undefined ) return;
+
+var c0_0 = colors[colorIndices[0]];
+var c0_1 = colors[colorIndices[1]];
+var c1_0 = colors[colorIndices[2]];
+var c1_1 = colors[colorIndices[3]];
+
+var istep = 1 - step;
+var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
+var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
+var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
+var color1 = "rgb("+r1+","+g1+","+b1+")";
+
+var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
+var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
+var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
+var color2 = "rgb("+r2+","+g2+","+b2+")";
+
+$('#gradient').css({
+ background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
+  background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
+ 
+ step += gradientSpeed;
+ if ( step >= 1 )
+ {
+  step %= 1;
+  colorIndices[0] = colorIndices[1];
+  colorIndices[2] = colorIndices[3];
   
-  if ( $===undefined ) return;
+  //pick two new target color indices
+  //do not pick the same as the current one
+  colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+  colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
   
-  var c0_0 = colors[colorIndices[0]];
-  var c0_1 = colors[colorIndices[1]];
-  var c1_0 = colors[colorIndices[2]];
-  var c1_1 = colors[colorIndices[3]];
-
-  var istep = 1 - step;
-  var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
-  var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
-  var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
-  var color1 = "rgb("+r1+","+g1+","+b1+")";
-
-  var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
-  var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
-  var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
-  var color2 = "rgb("+r2+","+g2+","+b2+")";
-
-  $('#gradient').css({
-   background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
-    background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
-   
-   step += gradientSpeed;
-   if ( step >= 1 )
-   {
-    step %= 1;
-    colorIndices[0] = colorIndices[1];
-    colorIndices[2] = colorIndices[3];
-    
-    //pick two new target color indices
-    //do not pick the same as the current one
-    colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
-    colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
-    
-  }
+}
 }
 
 setInterval(updateGradient,10);
@@ -106,175 +106,175 @@ setInterval(updateGradient,10);
 
 
 <button id="btnScrollToTop">
-	<i class='fas fa-arrow-alt-circle-up' style='font-size:35px;color:white'></i>
+<i class='fas fa-arrow-alt-circle-up' style='font-size:35px;color:white'></i>
 </button>
 
 <div id="gradient"></div>
 <header>
-  <a href="index.html"><h1>ZEN DICTIONARY</h1></a>
+<a href="index.html"><h1>ZEN DICTIONARY</h1></a>
 
 </header>
 
 <nav>
-  <ul>
-   <li><a href="meditation.html">MEDITATION</a></li>
-   <li><a href="exercise.html" class="link">EXERCISE</a></li>
-   <li><a href="yoga.html" class="link">YOGA</a></li>
-   <li class="current"><a href="health.html" class="link">HEALTH/FOOD</a></li>
-   <li><a href="games.html" class="link">GAMES</a></li>
- </ul>
+<ul>
+ <li><a href="meditation.html">MEDITATION</a></li>
+ <li><a href="exercise.html" class="link">EXERCISE</a></li>
+ <li><a href="yoga.html" class="link">YOGA</a></li>
+ <li class="current"><a href="health.html" class="link">HEALTH/FOOD</a></li>
+ <li><a href="games.html" class="link">GAMES</a></li>
+</ul>
 </nav>
 
 <div class="sidebar">
-  <ul>
-    <li><a href="meditation.html">MEDITATION</a></li>
-    <li><a href="exercise.html" >EXERCISE</a></li>
-    <li><a href="yoga.html" >YOGA</a></li>
-    <li><a href="health.html" >HEALTH/FOOD</a></li>
-    <li><a href="games.html" >GAMES</a></li>
-  </ul>
-  <button class="sidebarBtn">
-    <span></span>
-  </button>
+<ul>
+  <li><a href="meditation.html">MEDITATION</a></li>
+  <li><a href="exercise.html" >EXERCISE</a></li>
+  <li><a href="yoga.html" >YOGA</a></li>
+  <li><a href="health.html" >HEALTH/FOOD</a></li>
+  <li><a href="games.html" >GAMES</a></li>
+</ul>
+<button class="sidebarBtn">
+  <span></span>
+</button>
 </div>
 
 <main>
 
-  <div class="meditationcontent">
-    
-    <h2> What is health? </h2>
-    <p>Healthy eating means eating a variety of foods that give you the nutrients you need to maintain your health, feel good, and have energy. These nutrients include protein, carbohydrates, fat, water, vitamins, and minerals. </p>
+<div class="meditationcontent">
 
-    <h3 class="h3">Click the cards to learn more! </h3>
+  <h2> What is health? </h2>
+  <p>Healthy eating means eating a variety of foods that give you the nutrients you need to maintain your health, feel good, and have energy. These nutrients include protein, carbohydrates, fat, water, vitamins, and minerals. </p>
 
+  <h3 class="h3">Click the cards to learn more! </h3>
+
+</div>
+
+
+
+<div class="grid_container">
+
+  <div class="card_container">
+    <div class="card">
+      <div class="front_card">
+        <img src="images/apple.jpg">
+
+      </div>
+      <div class="back_card">
+        <h2 class="food">Apple</h2>
+        <div class="foodbio">Apples are high in fiber, vitamin C, and numerous antioxidants. They are very filling and make the perfect snack if you find yourself hungry between meals</div>
+        <a href="https://www.apples.me/pick" target="_blank">
+          <button class="buy">BUY</button>
+        </a>
+      </div>
+    </div>
   </div>
 
-
-
-  <div class="grid_container">
-
-    <div class="card_container">
-      <div class="card">
-        <div class="front_card">
-          <img src="images/apple.jpg">
-
-        </div>
-        <div class="back_card">
-          <h2 class="food">Apple</h2>
-          <div class="foodbio">Apples are high in fiber, vitamin C, and numerous antioxidants. They are very filling and make the perfect snack if you find yourself hungry between meals</div>
-          <a href="https://www.apples.me/pick" target="_blank">
-            <button class="buy">BUY</button>
-          </a>
-        </div>
+  <div class="card_container">
+    <div class="card">
+      <div class="front_card">
+        <img src="images/spinach.jpg">
+      </div>
+      <div class="back_card">
+        <h2 class="food">Spinach</h2>
+        <div class="foodbio">Spinach is a superfood. It is loaded with tons of nutrients in a low-calorie package. Dark, leafy greens like spinach are important for skin, hair, and bone health. They also provide protein, iron, vitamins, and minerals.</div>
+        <a href="https://www.bigbasket.com/ss/spinach/#!page=1" target="_blank">
+          <button class="buy">BUY</button>
+        </a>
       </div>
     </div>
-
-    <div class="card_container">
-      <div class="card">
-        <div class="front_card">
-          <img src="images/spinach.jpg">
-        </div>
-        <div class="back_card">
-          <h2 class="food">Spinach</h2>
-          <div class="foodbio">Spinach is a superfood. It is loaded with tons of nutrients in a low-calorie package. Dark, leafy greens like spinach are important for skin, hair, and bone health. They also provide protein, iron, vitamins, and minerals.</div>
-          <a href="https://www.bigbasket.com/ss/spinach/#!page=1" target="_blank">
-            <button class="buy">BUY</button>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card_container">
-      <div class="card">
-        <div class="front_card">
-          <img src="images/banana.jpg">
-        </div>
-        <div class="back_card">
-          <h2 class="food">Banana</h2>
-          <div class="foodbio">Bananas are among the world’s best sources of potassium. They’re also high in vitamin B6 and fiber, as well as convenient and portable.</div>
-          <a href="https://www.amazon.com/FRESH-BANANAS-FRUIT-VEGETABLES-PRODUCE/dp/B01BZIQ3P6" target="_blank">
-            <button class="buy">BUY</button>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card_container">
-      <div class="card">
-        <div class="front_card">
-          <img src="images/avo.jpg">
-        </div>
-        <div class="back_card">
-          <h2 class="food">Avocado</h2>
-          <div class="foodbio">Avocados are different than most fruits because they are loaded with healthy fats instead of carbs. Not only are they creamy and tasty but also high in fiber, potassium, and vitamin C.</div>
-          <a href="https://www.froghollow.com/products/organic-hass-avocados" target="_blank">
-            <button class="buy">BUY</button>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card_container">
-      <div class="card">
-        <div class="front_card">
-          <img src="images/quin.jpg">
-        </div>
-        <div class="back_card">
-          <h2 class="food">Quinoa</h2>
-          <div class="foodbio">Quinoa has become incredibly popular among health-conscious individuals in recent years. It’s a tasty grain that’s high in nutrients, such as fiber and magnesium. It is also an excellent source of plant-based protein.</div>
-          <a href="https://nuts.com/cookingbaking/grains/quinoa/white.html" target="_blank">
-            <button class="buy">BUY</button>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card_container">
-      <div class="card">
-        <div class="front_card">
-          <img src="images/almond.jpg">
-        </div>
-        <div class="back_card">
-          <h2 class="food">Almond</h2>
-          <div class="foodbio">Almonds are a popular nut loaded with vitamin E, antioxidants, magnesium, and fiber. Studies show that almonds can help you lose weight and improve metabolic health.</div>
-          <a href="https://sincerelynuts.com/collections/almonds" target="_blank">
-            <button class="buy">BUY</button>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card_container">
-      <div class="card">
-        <div class="front_card">
-          <img src="images/egg.jpg">
-        </div>
-        <div class="back_card">
-          <h2 class="food">Egg</h2>
-          <div class="foodbio">Both the white and yolk of an egg are rich in nutrients, including proteins, vitamins and minerals. The yolk also contains cholesterol, fat-soluble vitamins (such as vitamins D and E) and essential fatty acids.</div>
-          <a href="https://www.localharvest.org/store/eggs.jsp" target="_blank">
-            <button class="buy">BUY</button>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card_container">
-      <div class="card">
-        <div class="front_card">
-          <img src="images/broccoli.jpg">
-        </div>
-        <div class="back_card">
-          <h2 class="food">Broccoli</h2>
-          <div class="foodbio">Broccoli is a cruciferous vegetable that tastes great both raw and cooked. It’s an excellent source of fiber and vitamins C and K.</div>
-          <a href="https://www.target.com/c/fresh-vegetables-produce-grocery/broccoli/-/N-4tglhZ1m5n0?Nao=0" target="_blank">
-            <button class="buy">BUY</button>
-          </a>
-        </div>
-      </div>
-    </div>
-
   </div>
+
+  <div class="card_container">
+    <div class="card">
+      <div class="front_card">
+        <img src="images/banana.jpg">
+      </div>
+      <div class="back_card">
+        <h2 class="food">Banana</h2>
+        <div class="foodbio">Bananas are among the world’s best sources of potassium. They’re also high in vitamin B6 and fiber, as well as convenient and portable.</div>
+        <a href="https://www.amazon.com/FRESH-BANANAS-FRUIT-VEGETABLES-PRODUCE/dp/B01BZIQ3P6" target="_blank">
+          <button class="buy">BUY</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card_container">
+    <div class="card">
+      <div class="front_card">
+        <img src="images/avo.jpg">
+      </div>
+      <div class="back_card">
+        <h2 class="food">Avocado</h2>
+        <div class="foodbio">Avocados are different than most fruits because they are loaded with healthy fats instead of carbs. Not only are they creamy and tasty but also high in fiber, potassium, and vitamin C.</div>
+        <a href="https://www.froghollow.com/products/organic-hass-avocados" target="_blank">
+          <button class="buy">BUY</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card_container">
+    <div class="card">
+      <div class="front_card">
+        <img src="images/quin.jpg">
+      </div>
+      <div class="back_card">
+        <h2 class="food">Quinoa</h2>
+        <div class="foodbio">Quinoa has become incredibly popular among health-conscious individuals in recent years. It’s a tasty grain that’s high in nutrients, such as fiber and magnesium. It is also an excellent source of plant-based protein.</div>
+        <a href="https://nuts.com/cookingbaking/grains/quinoa/white.html" target="_blank">
+          <button class="buy">BUY</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card_container">
+    <div class="card">
+      <div class="front_card">
+        <img src="images/almond.jpg">
+      </div>
+      <div class="back_card">
+        <h2 class="food">Almond</h2>
+        <div class="foodbio">Almonds are a popular nut loaded with vitamin E, antioxidants, magnesium, and fiber. Studies show that almonds can help you lose weight and improve metabolic health.</div>
+        <a href="https://sincerelynuts.com/collections/almonds" target="_blank">
+          <button class="buy">BUY</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card_container">
+    <div class="card">
+      <div class="front_card">
+        <img src="images/egg.jpg">
+      </div>
+      <div class="back_card">
+        <h2 class="food">Egg</h2>
+        <div class="foodbio">Both the white and yolk of an egg are rich in nutrients, including proteins, vitamins and minerals. The yolk also contains cholesterol, fat-soluble vitamins (such as vitamins D and E) and essential fatty acids.</div>
+        <a href="https://www.localharvest.org/store/eggs.jsp" target="_blank">
+          <button class="buy">BUY</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card_container">
+    <div class="card">
+      <div class="front_card">
+        <img src="images/broccoli.jpg">
+      </div>
+      <div class="back_card">
+        <h2 class="food">Broccoli</h2>
+        <div class="foodbio">Broccoli is a cruciferous vegetable that tastes great both raw and cooked. It’s an excellent source of fiber and vitamins C and K.</div>
+        <a href="https://www.target.com/c/fresh-vegetables-produce-grocery/broccoli/-/N-4tglhZ1m5n0?Nao=0" target="_blank">
+          <button class="buy">BUY</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 
 
@@ -285,16 +285,16 @@ setInterval(updateGradient,10);
 </main>
 
 <script>
-  const btnScrollToTop = document.querySelector("#btnScrollToTop");
+const btnScrollToTop = document.querySelector("#btnScrollToTop");
 
-  btnScrollToTop.addEventListener("click", function () {
-   window.scrollTo({
-    top:0,
-    left:0,
-    behavior:"smooth"
-  });
+btnScrollToTop.addEventListener("click", function () {
+ window.scrollTo({
+  top:0,
+  left:0,
+  behavior:"smooth"
+});
 
- });
+});
 </script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </body>
