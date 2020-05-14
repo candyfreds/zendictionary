@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 
-<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-<script src="js/script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
-
-<script>
-  $(document).ready(function(){
-    $('.sidebarBtn').click(function(){
-      $('.sidebar').toggleClass('active');
-      $('.sidebarBtn').toggleClass('toggle');
-      $('.sidebarBtn').toggleClass('toggle');
-      $('.sidebarBtn').toggleClass('leftyoujerk');
-    })
-  });
-</script>
-
-
-  <script>
-   $(document).ready(function(){
-    $(".menu").on("change", function(event) {
-      var choice = $(this).val();
-      $(".item.active").removeClass("active");
-      $("." + choice).addClass("active");
-    });
-  </script>
 
   <script>
     $(document).ready(function(){
-      $(".card").click(function() {
-        $(this).toggleClass("active");
-      });
+      $('.sidebarBtn').click(function(){
+        $('.sidebar').toggleClass('active');
+        $('.sidebarBtn').toggleClass('toggle');
+        $('.sidebarBtn').toggleClass('toggle');
+        $('.sidebarBtn').toggleClass('leftyoujerk');
+      })
     });
   </script>
 
+
   <script>
+    $(document).ready(function(){
+      $(".menu").on("change", function(event) {
+        var choice = $(this).val();
+        $(".item.active").removeClass("active");
+        $("." + choice).addClass("active");
+      });
+    </script>
 
-    var colors = new Array(
-      [62,35,255],
-      [60,255,60],
-      [255,35,98],
-      [45,175,230],
-      [255,0,255],
-      [255,128,0]);
+    <script>
+      $(document).ready(function(){
+        $(".card").click(function() {
+          $(this).toggleClass("active");
+        });
+      });
+    </script>
 
-    var step = 0;
+    <script>
+
+      var colors = new Array(
+        [62,35,255],
+        [60,255,60],
+        [255,35,98],
+        [45,175,230],
+        [255,0,255],
+        [255,128,0]);
+
+      var step = 0;
 //color table indices for: 
 // current color left
 // next color left
@@ -63,9 +63,9 @@ var gradientSpeed = 0.002;
 
 function updateGradient()
 {
-  
+
   if ( $===undefined ) return;
-  
+
   var c0_0 = colors[colorIndices[0]];
   var c0_1 = colors[colorIndices[1]];
   var c1_0 = colors[colorIndices[2]];
@@ -83,22 +83,22 @@ function updateGradient()
   var color2 = "rgb("+r2+","+g2+","+b2+")";
 
   $('#gradient').css({
-   background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
-    background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
-   
-   step += gradientSpeed;
-   if ( step >= 1 )
-   {
-    step %= 1;
-    colorIndices[0] = colorIndices[1];
-    colorIndices[2] = colorIndices[3];
-    
-    //pick two new target color indices
-    //do not pick the same as the current one
-    colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
-    colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
-    
-  }
+    background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
+      background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
+
+    step += gradientSpeed;
+    if ( step >= 1 )
+    {
+      step %= 1;
+      colorIndices[0] = colorIndices[1];
+      colorIndices[2] = colorIndices[3];
+
+//pick two new target color indices
+//do not pick the same as the current one
+colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+
+}
 }
 
 setInterval(updateGradient,10);
@@ -108,7 +108,7 @@ setInterval(updateGradient,10);
 
 
 <button id="btnScrollToTop">
-	<i class='fas fa-arrow-alt-circle-up' style='font-size:35px;color:white'></i>
+  <i class='fas fa-arrow-alt-circle-up' style='font-size:35px;color:white'></i>
 </button>
 
 <div id="gradient"></div>
@@ -119,12 +119,12 @@ setInterval(updateGradient,10);
 
 <nav>
   <ul>
-   <li><a href="meditation.html">MEDITATION</a></li>
-   <li><a href="exercise.html" class="link">EXERCISE</a></li>
-   <li><a href="yoga.html" class="link">YOGA</a></li>
-   <li><a href="health.html" class="link">HEALTH/FOOD</a></li>
-   <li class="current"><a href="games.html" class="link">GAMES</a></li>
- </ul>
+    <li><a href="meditation.html">MEDITATION</a></li>
+    <li><a href="exercise.html" class="link">EXERCISE</a></li>
+    <li><a href="yoga.html" class="link">YOGA</a></li>
+    <li><a href="health.html" class="link">HEALTH/FOOD</a></li>
+    <li class="current"><a href="games.html" class="link">GAMES</a></li>
+  </ul>
 </nav>
 
 <div class="sidebar">
@@ -143,9 +143,9 @@ setInterval(updateGradient,10);
 <main>
 
   <div class="meditationcontent">
-    
+
     <h2> Games </h2>
- 
+
 
   </div>
 
@@ -179,13 +179,13 @@ setInterval(updateGradient,10);
   const btnScrollToTop = document.querySelector("#btnScrollToTop");
 
   btnScrollToTop.addEventListener("click", function () {
-   window.scrollTo({
-    top:0,
-    left:0,
-    behavior:"smooth"
-  });
+    window.scrollTo({
+      top:0,
+      left:0,
+      behavior:"smooth"
+    });
 
- });
+  });
 </script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </body>

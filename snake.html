@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 
-<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-<script src="js/script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
-<!-- side bar nav -->
-<script>
-  $(document).ready(function(){
-    $('.sidebarBtn').click(function(){
-      $('.sidebar').toggleClass('active');
-      $('.sidebarBtn').toggleClass('toggle');
-      $('.sidebarBtn').toggleClass('toggle');
-      $('.sidebarBtn').toggleClass('leftyoujerk');
-    })
-  });
-</script>
+  <!-- side bar nav -->
+  <script>
+    $(document).ready(function(){
+      $('.sidebarBtn').click(function(){
+        $('.sidebar').toggleClass('active');
+        $('.sidebarBtn').toggleClass('toggle');
+        $('.sidebarBtn').toggleClass('toggle');
+        $('.sidebarBtn').toggleClass('leftyoujerk');
+      })
+    });
+  </script>
 
-<!-- Snake game -->
-<script>
+  <!-- Snake game -->
+  <script>
 /**
- * Namespace
- */
+* Namespace
+*/
 var Game      = Game      || {};
 var Keyboard  = Keyboard  || {}; 
 var Component = Component || {};
 
 /**
- * Keyboard Map
- */
+* Keyboard Map
+*/
 Keyboard.Keymap = {
   37: 'left',
   38: 'up',
@@ -42,226 +42,226 @@ Keyboard.Keymap = {
 };
 
 /**
- * Keyboard Events
- */
+* Keyboard Events
+*/
 Keyboard.ControllerEvents = function() {
-  
-  // Setts
-  var self      = this;
-  this.pressKey = null;
-  this.keymap   = Keyboard.Keymap;
-  
-  // Keydown Event
-  document.onkeydown = function(event) {
-    self.pressKey = event.which;
-  };
-  
-  // Get Key
-  this.getKey = function() {
-    return this.keymap[this.pressKey];
-  };
+
+// Setts
+var self      = this;
+this.pressKey = null;
+this.keymap   = Keyboard.Keymap;
+
+// Keydown Event
+document.onkeydown = function(event) {
+  self.pressKey = event.which;
+};
+
+// Get Key
+this.getKey = function() {
+  return this.keymap[this.pressKey];
+};
 };
 
 /**
- * Game Component Stage
- */
+* Game Component Stage
+*/
 Component.Stage = function(canvas, conf) {  
-  
-  // Sets
-  this.keyEvent  = new Keyboard.ControllerEvents();
-  this.width     = canvas.width;
-  this.height    = canvas.height;
-  this.length    = [];
-  this.food      = {};
-  this.score     = 0;
-  this.direction = 'right';
-  this.conf      = {
-    cw   : 10,
-    size : 5,
-    fps  : 1000
-  };
-  
-  // Merge Conf
-  if (typeof conf == 'object') {
-    for (var key in conf) {
-      if (conf.hasOwnProperty(key)) {
-        this.conf[key] = conf[key];
-      }
+
+// Sets
+this.keyEvent  = new Keyboard.ControllerEvents();
+this.width     = canvas.width;
+this.height    = canvas.height;
+this.length    = [];
+this.food      = {};
+this.score     = 0;
+this.direction = 'right';
+this.conf      = {
+  cw   : 10,
+  size : 5,
+  fps  : 1000
+};
+
+// Merge Conf
+if (typeof conf == 'object') {
+  for (var key in conf) {
+    if (conf.hasOwnProperty(key)) {
+      this.conf[key] = conf[key];
     }
   }
-  
+}
+
 };
 
 /**
- * Game Component Snake
- */
+* Game Component Snake
+*/
 Component.Snake = function(canvas, conf) {
-  
-  // Game Stage
-  this.stage = new Component.Stage(canvas, conf);
-  
-  // Init Snake
-  this.initSnake = function() {
-    
-    // Itaration in Snake Conf Size
-    for (var i = 0; i < this.stage.conf.size; i++) {
-      
-      // Add Snake Cells
-      this.stage.length.push({x: i, y:0});
-    }
-  };
-  
-  // Call init Snake
+
+// Game Stage
+this.stage = new Component.Stage(canvas, conf);
+
+// Init Snake
+this.initSnake = function() {
+
+// Itaration in Snake Conf Size
+for (var i = 0; i < this.stage.conf.size; i++) {
+
+// Add Snake Cells
+this.stage.length.push({x: i, y:0});
+}
+};
+
+// Call init Snake
+this.initSnake();
+
+// Init Food  
+this.initFood = function() {
+
+// Add food on stage
+this.stage.food = {
+  x: Math.round(Math.random() * (this.stage.width - this.stage.conf.cw) / this.stage.conf.cw), 
+  y: Math.round(Math.random() * (this.stage.height - this.stage.conf.cw) / this.stage.conf.cw), 
+};
+};
+
+// Init Food
+this.initFood();
+
+// Restart Stage
+this.restart = function() {
+  this.stage.length            = [];
+  this.stage.food              = {};
+  this.stage.score             = 0;
+  this.stage.direction         = 'right';
+  this.stage.keyEvent.pressKey = null;
   this.initSnake();
-  
-  // Init Food  
-  this.initFood = function() {
-    
-    // Add food on stage
-    this.stage.food = {
-      x: Math.round(Math.random() * (this.stage.width - this.stage.conf.cw) / this.stage.conf.cw), 
-      y: Math.round(Math.random() * (this.stage.height - this.stage.conf.cw) / this.stage.conf.cw), 
-    };
-  };
-  
-  // Init Food
   this.initFood();
-  
-  // Restart Stage
-  this.restart = function() {
-    this.stage.length            = [];
-    this.stage.food              = {};
-    this.stage.score             = 0;
-    this.stage.direction         = 'right';
-    this.stage.keyEvent.pressKey = null;
-    this.initSnake();
-    this.initFood();
-  };
+};
 };
 
 /**
- * Game Draw
- */
+* Game Draw
+*/
 Game.Draw = function(context, snake) {
-  
-  // Draw Stage
-  this.drawStage = function() {
-    
-    // Check Keypress And Set Stage direction
-    var keyPress = snake.stage.keyEvent.getKey(); 
-    if (typeof(keyPress) != 'undefined') {
-      snake.stage.direction = keyPress;
-    }
-    
-    // Draw White Stage
-    context.fillStyle = "white";
-    context.fillRect(0, 0, snake.stage.width, snake.stage.height);
-    
-    // Snake Position
-    var nx = snake.stage.length[0].x;
-    var ny = snake.stage.length[0].y;
-    
-    // Add position by stage direction
-    switch (snake.stage.direction) {
-      case 'right':
-        nx++;
-        break;
-      case 'left':
-        nx--;
-        break;
-      case 'up':
-        ny--;
-        break;
-      case 'down':
-        ny++;
-        break;
-    }
-    
-    // Check Collision
-    if (this.collision(nx, ny) == true) {
-      snake.restart();
-      return;
-    }
-    
-    // Logic of Snake food
-    if (nx == snake.stage.food.x && ny == snake.stage.food.y) {
-      var tail = {x: nx, y: ny};
-      snake.stage.score++;
-      snake.initFood();
-    } else {
-      var tail = snake.stage.length.pop();
-      tail.x   = nx;
-      tail.y   = ny;  
-    }
-    snake.stage.length.unshift(tail);
-    
-    // Draw Snake
-    for (var i = 0; i < snake.stage.length.length; i++) {
-      var cell = snake.stage.length[i];
-      this.drawCell(cell.x, cell.y);
-    }
-    
-    // Draw Food
-    this.drawCell(snake.stage.food.x, snake.stage.food.y);
-    
-    // Draw Score
-    context.fillText('Score: ' + snake.stage.score, 5, (snake.stage.height - 5));
-  };
-  
-  // Draw Cell
-  this.drawCell = function(x, y) {
-    context.fillStyle = 'rgb(170, 170, 170)';
-    context.beginPath();
-    context.arc((x * snake.stage.conf.cw + 6), (y * snake.stage.conf.cw + 6), 4, 0, 2*Math.PI, false);    
-    context.fill();
-  };
-  
-  // Check Collision with walls
-  this.collision = function(nx, ny) {  
-    if (nx == -1 || nx == (snake.stage.width / snake.stage.conf.cw) || ny == -1 || ny == (snake.stage.height / snake.stage.conf.cw)) {
-      return true;
-    }
-    return false;    
+
+// Draw Stage
+this.drawStage = function() {
+
+// Check Keypress And Set Stage direction
+var keyPress = snake.stage.keyEvent.getKey(); 
+if (typeof(keyPress) != 'undefined') {
+  snake.stage.direction = keyPress;
+}
+
+// Draw White Stage
+context.fillStyle = "white";
+context.fillRect(0, 0, snake.stage.width, snake.stage.height);
+
+// Snake Position
+var nx = snake.stage.length[0].x;
+var ny = snake.stage.length[0].y;
+
+// Add position by stage direction
+switch (snake.stage.direction) {
+  case 'right':
+  nx++;
+  break;
+  case 'left':
+  nx--;
+  break;
+  case 'up':
+  ny--;
+  break;
+  case 'down':
+  ny++;
+  break;
+}
+
+// Check Collision
+if (this.collision(nx, ny) == true) {
+  snake.restart();
+  return;
+}
+
+// Logic of Snake food
+if (nx == snake.stage.food.x && ny == snake.stage.food.y) {
+  var tail = {x: nx, y: ny};
+  snake.stage.score++;
+  snake.initFood();
+} else {
+  var tail = snake.stage.length.pop();
+  tail.x   = nx;
+  tail.y   = ny;  
+}
+snake.stage.length.unshift(tail);
+
+// Draw Snake
+for (var i = 0; i < snake.stage.length.length; i++) {
+  var cell = snake.stage.length[i];
+  this.drawCell(cell.x, cell.y);
+}
+
+// Draw Food
+this.drawCell(snake.stage.food.x, snake.stage.food.y);
+
+// Draw Score
+context.fillText('Score: ' + snake.stage.score, 5, (snake.stage.height - 5));
+};
+
+// Draw Cell
+this.drawCell = function(x, y) {
+  context.fillStyle = 'rgb(170, 170, 170)';
+  context.beginPath();
+  context.arc((x * snake.stage.conf.cw + 6), (y * snake.stage.conf.cw + 6), 4, 0, 2*Math.PI, false);    
+  context.fill();
+};
+
+// Check Collision with walls
+this.collision = function(nx, ny) {  
+  if (nx == -1 || nx == (snake.stage.width / snake.stage.conf.cw) || ny == -1 || ny == (snake.stage.height / snake.stage.conf.cw)) {
+    return true;
   }
+  return false;    
+}
 };
 
 
 /**
- * Game Snake
- */
+* Game Snake
+*/
 Game.Snake = function(elementId, conf) {
-  
-  // Sets
-  var canvas   = document.getElementById(elementId);
-  var context  = canvas.getContext("2d");
-  var snake    = new Component.Snake(canvas, conf);
-  var gameDraw = new Game.Draw(context, snake);
-  
-  // Game Interval
-  setInterval(function() {gameDraw.drawStage();}, snake.stage.conf.fps);
+
+// Sets
+var canvas   = document.getElementById(elementId);
+var context  = canvas.getContext("2d");
+var snake    = new Component.Snake(canvas, conf);
+var gameDraw = new Game.Draw(context, snake);
+
+// Game Interval
+setInterval(function() {gameDraw.drawStage();}, snake.stage.conf.fps);
 };
 
 
 /**
- * Window Load
- */
+* Window Load
+*/
 window.onload = function() {
   var snake = new Game.Snake('stage', {fps: 100, size: 4});
 };
 </script>
-  
+
 <!-- background gradient -->
 <script>
 
-    var colors = new Array(
-      [62,35,255],
-      [60,255,60],
-      [255,35,98],
-      [45,175,230],
-      [255,0,255],
-      [255,128,0]);
+  var colors = new Array(
+    [62,35,255],
+    [60,255,60],
+    [255,35,98],
+    [45,175,230],
+    [255,0,255],
+    [255,128,0]);
 
-    var step = 0;
+  var step = 0;
 //color table indices for: 
 // current color left
 // next color left
@@ -274,9 +274,9 @@ var gradientSpeed = 0.002;
 
 function updateGradient()
 {
-  
+
   if ( $===undefined ) return;
-  
+
   var c0_0 = colors[colorIndices[0]];
   var c0_1 = colors[colorIndices[1]];
   var c1_0 = colors[colorIndices[2]];
@@ -294,22 +294,22 @@ function updateGradient()
   var color2 = "rgb("+r2+","+g2+","+b2+")";
 
   $('#gradient').css({
-   background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
-    background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
-   
-   step += gradientSpeed;
-   if ( step >= 1 )
-   {
-    step %= 1;
-    colorIndices[0] = colorIndices[1];
-    colorIndices[2] = colorIndices[3];
-    
-    //pick two new target color indices
-    //do not pick the same as the current one
-    colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
-    colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
-    
-  }
+    background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
+      background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
+
+    step += gradientSpeed;
+    if ( step >= 1 )
+    {
+      step %= 1;
+      colorIndices[0] = colorIndices[1];
+      colorIndices[2] = colorIndices[3];
+
+//pick two new target color indices
+//do not pick the same as the current one
+colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+
+}
 }
 
 setInterval(updateGradient,10);
@@ -319,7 +319,7 @@ setInterval(updateGradient,10);
 
 
 <button id="btnScrollToTop">
-	<i class='fas fa-arrow-alt-circle-up' style='font-size:35px;color:white'></i>
+  <i class='fas fa-arrow-alt-circle-up' style='font-size:35px;color:white'></i>
 </button>
 
 <div id="gradient"></div>
@@ -330,12 +330,12 @@ setInterval(updateGradient,10);
 
 <nav>
   <ul>
-   <li><a href="meditation.html">MEDITATION</a></li>
-   <li><a href="exercise.html" class="link">EXERCISE</a></li>
-   <li><a href="yoga.html" class="link">YOGA</a></li>
-   <li><a href="health.html" class="link">HEALTH/FOOD</a></li>
-   <li class="current"><a href="games.html" class="link">GAMES</a></li>
- </ul>
+    <li><a href="meditation.html">MEDITATION</a></li>
+    <li><a href="exercise.html" class="link">EXERCISE</a></li>
+    <li><a href="yoga.html" class="link">YOGA</a></li>
+    <li><a href="health.html" class="link">HEALTH/FOOD</a></li>
+    <li class="current"><a href="games.html" class="link">GAMES</a></li>
+  </ul>
 </nav>
 
 <div class="sidebar">
@@ -354,38 +354,27 @@ setInterval(updateGradient,10);
 <main>
 
   <div class="meditationcontent">
-    
-    
+    <div class="body">
 
-<div class="body">
+      <h2> Snake </h2>
+      <h3 class="h3">Use the arrows on your computer to control the snake! </h3>
+      <canvas id="stage" height="400" width="520"></canvas>
+    </div>
 
-  <h2> Snake </h2>
-<h3 class="h3">Use the arrows on your computer to control the snake! </h3>
-  <canvas id="stage" height="400" width="520"></canvas>
+  </main>
 
+  <script>
+    const btnScrollToTop = document.querySelector("#btnScrollToTop");
 
+    btnScrollToTop.addEventListener("click", function () {
+      window.scrollTo({
+        top:0,
+        left:0,
+        behavior:"smooth"
+      });
 
-</div>
-
-
-
-
-
-
-</main>
-
-<script>
-  const btnScrollToTop = document.querySelector("#btnScrollToTop");
-
-  btnScrollToTop.addEventListener("click", function () {
-   window.scrollTo({
-    top:0,
-    left:0,
-    behavior:"smooth"
-  });
-
- });
-</script>
-<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    });
+  </script>
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </body>
 </html>

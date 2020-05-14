@@ -7,9 +7,9 @@
 
 <body>
 
-<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-<script src="js/script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+	<script src="js/script.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
 
 	<button id="btnScrollToTop">
@@ -17,28 +17,28 @@
 	</button>
 
 
-<script>
-	$(document).ready(function(){
-		$('.sidebarBtn').click(function(){
-			$('.sidebar').toggleClass('active');
-			$('.sidebarBtn').toggleClass('toggle');
-			$('.sidebarBtn').toggleClass('toggle');
-			$('.sidebarBtn').toggleClass('leftyoujerk');
-		})
-	});
-</script>
+	<script>
+		$(document).ready(function(){
+			$('.sidebarBtn').click(function(){
+				$('.sidebar').toggleClass('active');
+				$('.sidebarBtn').toggleClass('toggle');
+				$('.sidebarBtn').toggleClass('toggle');
+				$('.sidebarBtn').toggleClass('leftyoujerk');
+			})
+		});
+	</script>
 
-<script>
+	<script>
 
-	var colors = new Array(
-		[62,35,255],
-		[60,255,60],
-		[255,35,98],
-		[45,175,230],
-		[255,0,255],
-		[255,128,0]);
+		var colors = new Array(
+			[62,35,255],
+			[60,255,60],
+			[255,35,98],
+			[45,175,230],
+			[255,0,255],
+			[255,128,0]);
 
-	var step = 0;
+		var step = 0;
 //color table indices for: 
 // current color left
 // next color left
@@ -51,9 +51,9 @@ var gradientSpeed = 0.002;
 
 function updateGradient()
 {
-	
+
 	if ( $===undefined ) return;
-	
+
 	var c0_0 = colors[colorIndices[0]];
 	var c0_1 = colors[colorIndices[1]];
 	var c1_0 = colors[colorIndices[2]];
@@ -73,19 +73,19 @@ function updateGradient()
 	$('#gradient').css({
 		background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
 			background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
-		
+
 		step += gradientSpeed;
 		if ( step >= 1 )
 		{
 			step %= 1;
 			colorIndices[0] = colorIndices[1];
 			colorIndices[2] = colorIndices[3];
-			
-    //pick two new target color indices
-    //do not pick the same as the current one
-    colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
-    colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
-    
+
+//pick two new target color indices
+//do not pick the same as the current one
+colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+
 }
 }
 
@@ -178,11 +178,11 @@ setInterval(updateGradient,10);
 	<div class="meditationcontent">
 		<h2> What is meditation? </h2>
 		<p>Meditation is a practice where an individual uses a technique – such as mindfulness, or focusing the mind on a particular object, thought, or activity – to train attention and awareness, and achieve a mentally clear and emotionally calm and stable state. </p>
-		
+
 		<h2> What are the benefits of meditation? </h2>
 		<p>There are thousands of studies that have shown mindfulness meditation can positively impact mental and physical health. Whether it’s by reducing stress, improving sleep, increasing focus, or improving relationships, research shows mindfulness works. While the research on mindfulness, especially digital mindfulness programs, is still growing, there is evidence to support the use of mindfulness training for many outcomes.</p>
 	</div>
-	
+
 	<div class="whitebackground">
 		<div class="meditationcontenttwo">	
 			<h2 class="greyh2"> How to meditate: </h2>
@@ -216,7 +216,7 @@ setInterval(updateGradient,10);
 				<h3 class="greyh3">Step 4: Wander</h3>
 				<p>Take a few seconds to allow your mind to do whatever it wants. (You may find your mind is very quiet.) Noticing the sounds around you and bringing your attention back to the body, gently open your eyes.</p>
 			</div>
-			
+
 		</div>
 	</div>
 

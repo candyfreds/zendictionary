@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 
-<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-<script src="js/script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
-<!-- side bar nav -->
-<script>
-  $(document).ready(function(){
-    $('.sidebarBtn').click(function(){
-      $('.sidebar').toggleClass('active');
-      $('.sidebarBtn').toggleClass('toggle');
-      $('.sidebarBtn').toggleClass('toggle');
-      $('.sidebarBtn').toggleClass('leftyoujerk');
-    })
-  });
-</script>
+  <!-- side bar nav -->
+  <script>
+    $(document).ready(function(){
+      $('.sidebarBtn').click(function(){
+        $('.sidebar').toggleClass('active');
+        $('.sidebarBtn').toggleClass('toggle');
+        $('.sidebarBtn').toggleClass('toggle');
+        $('.sidebarBtn').toggleClass('leftyoujerk');
+      })
+    });
+  </script>
 
-<!-- tictactoe game -->
-<script>
-  // Gameplay
-  $(document).ready(function(){
-$('.box').on("click", function() {
-  // Set clicked class on current .div (box) 
-  $(this).addClass('clicked');
-  // Check that .game does not have class gameover, has the class player1 and does not have classes clicked1 or clicked2 (already clicked)
-  if ( !$('.game').hasClass('gameover') && $('.game').hasClass('player1') && !$(this).hasClass('clicked1') && !$(this).hasClass('clicked2') ) {
-    // If not, add class clicked1 (pink player clicked), toggle player1 class on .game DIV (player2's turn), set .winner DIV html to blue players turn
-    $(this).addClass('clicked1');
-    $('.game').toggleClass('player1');
-    $('.winner').html('<span style="color:#35ea97;">Green</span> players turn!');
-  // Same thing but this time we check that .game DIV does not have player1 class so it's blue players turn
+  <!-- tictactoe game -->
+  <script>
+// Gameplay
+$(document).ready(function(){
+  $('.box').on("click", function() {
+// Set clicked class on current .div (box) 
+$(this).addClass('clicked');
+// Check that .game does not have class gameover, has the class player1 and does not have classes clicked1 or clicked2 (already clicked)
+if ( !$('.game').hasClass('gameover') && $('.game').hasClass('player1') && !$(this).hasClass('clicked1') && !$(this).hasClass('clicked2') ) {
+// If not, add class clicked1 (pink player clicked), toggle player1 class on .game DIV (player2's turn), set .winner DIV html to blue players turn
+$(this).addClass('clicked1');
+$('.game').toggleClass('player1');
+$('.winner').html('<span style="color:#35ea97;">Green</span> players turn!');
+// Same thing but this time we check that .game DIV does not have player1 class so it's blue players turn
 } else if ( !$('.game').hasClass('gameover') && !$('.game').hasClass('player1') && !$(this).hasClass('clicked1') && !$(this).hasClass('clicked2') ) {
   $(this).addClass('clicked2');
   $('.game').toggleClass('player1');
@@ -45,24 +45,24 @@ $('.box').on("click", function() {
 
 // Check for a winner
 $('.game').on("click", function() {
-  // Pink player winning combinations
-  if ( !$('.game').hasClass('gameover') &&
-    $(".box:nth-child(1)").hasClass('clicked1') && $(".box:nth-child(2)").hasClass('clicked1') && $(".box:nth-child(3)").hasClass('clicked1') || 
-    $(".box:nth-child(4)").hasClass('clicked1') && $(".box:nth-child(5)").hasClass('clicked1') && $(".box:nth-child(6)").hasClass('clicked1') || 
-    $(".box:nth-child(7)").hasClass('clicked1') && $(".box:nth-child(8)").hasClass('clicked1') && $(".box:nth-child(9)").hasClass('clicked1') || 
-    $(".box:nth-child(1)").hasClass('clicked1') && $(".box:nth-child(4)").hasClass('clicked1') && $(".box:nth-child(7)").hasClass('clicked1') || 
-    $(".box:nth-child(2)").hasClass('clicked1') && $(".box:nth-child(5)").hasClass('clicked1') && $(".box:nth-child(8)").hasClass('clicked1') || 
-    $(".box:nth-child(3)").hasClass('clicked1') && $(".box:nth-child(6)").hasClass('clicked1') && $(".box:nth-child(9)").hasClass('clicked1') || 
-    $(".box:nth-child(1)").hasClass('clicked1') && $(".box:nth-child(5)").hasClass('clicked1') && $(".box:nth-child(9)").hasClass('clicked1') || 
-    $(".box:nth-child(3)").hasClass('clicked1') && $(".box:nth-child(5)").hasClass('clicked1') && $(".box:nth-child(7)").hasClass('clicked1') ) {
-      // Set HTML on .winner DIV to winning player
-      $('.winner').html('<span style="color: #333333;">Grey</span> player wins!');
-      // Add class gameover to .game DIV to prevent further play
-      $('.game').addClass('gameover');
-      // Show the .go DIV with overlay GAME OVER text
-      $('.go').css('visibility', 'visible');
-  // Blue player winning combinations
-  } else if ( !$('.game').hasClass('gameover') && 
+// Pink player winning combinations
+if ( !$('.game').hasClass('gameover') &&
+  $(".box:nth-child(1)").hasClass('clicked1') && $(".box:nth-child(2)").hasClass('clicked1') && $(".box:nth-child(3)").hasClass('clicked1') || 
+  $(".box:nth-child(4)").hasClass('clicked1') && $(".box:nth-child(5)").hasClass('clicked1') && $(".box:nth-child(6)").hasClass('clicked1') || 
+  $(".box:nth-child(7)").hasClass('clicked1') && $(".box:nth-child(8)").hasClass('clicked1') && $(".box:nth-child(9)").hasClass('clicked1') || 
+  $(".box:nth-child(1)").hasClass('clicked1') && $(".box:nth-child(4)").hasClass('clicked1') && $(".box:nth-child(7)").hasClass('clicked1') || 
+  $(".box:nth-child(2)").hasClass('clicked1') && $(".box:nth-child(5)").hasClass('clicked1') && $(".box:nth-child(8)").hasClass('clicked1') || 
+  $(".box:nth-child(3)").hasClass('clicked1') && $(".box:nth-child(6)").hasClass('clicked1') && $(".box:nth-child(9)").hasClass('clicked1') || 
+  $(".box:nth-child(1)").hasClass('clicked1') && $(".box:nth-child(5)").hasClass('clicked1') && $(".box:nth-child(9)").hasClass('clicked1') || 
+  $(".box:nth-child(3)").hasClass('clicked1') && $(".box:nth-child(5)").hasClass('clicked1') && $(".box:nth-child(7)").hasClass('clicked1') ) {
+// Set HTML on .winner DIV to winning player
+$('.winner').html('<span style="color: #333333;">Grey</span> player wins!');
+// Add class gameover to .game DIV to prevent further play
+$('.game').addClass('gameover');
+// Show the .go DIV with overlay GAME OVER text
+$('.go').css('visibility', 'visible');
+// Blue player winning combinations
+} else if ( !$('.game').hasClass('gameover') && 
   $(".box:nth-child(1)").hasClass('clicked2') && $(".box:nth-child(2)").hasClass('clicked2') && $(".box:nth-child(3)").hasClass('clicked2') || 
   $(".box:nth-child(4)").hasClass('clicked2') && $(".box:nth-child(5)").hasClass('clicked2') && $(".box:nth-child(6)").hasClass('clicked2') || 
   $(".box:nth-child(7)").hasClass('clicked2') && $(".box:nth-child(8)").hasClass('clicked2') && $(".box:nth-child(9)").hasClass('clicked2') || 
@@ -71,15 +71,15 @@ $('.game').on("click", function() {
   $(".box:nth-child(3)").hasClass('clicked2') && $(".box:nth-child(6)").hasClass('clicked2') && $(".box:nth-child(9)").hasClass('clicked2') || 
   $(".box:nth-child(1)").hasClass('clicked2') && $(".box:nth-child(5)").hasClass('clicked2') && $(".box:nth-child(9)").hasClass('clicked2') || 
   $(".box:nth-child(3)").hasClass('clicked2') && $(".box:nth-child(5)").hasClass('clicked2') && $(".box:nth-child(7)").hasClass('clicked2') ) {
-    $('.winner').html('<span style="color: #35ea97;">Green</span> player wins!');
-    $('.game').addClass('gameover');
-    $('.go').css('visibility', 'visible');
-  // All boxes are clicked and no winner
-  } else if ( $('.box:nth-child(1)').hasClass('clicked') && $('.box:nth-child(2)').hasClass('clicked') && $('.box:nth-child(3)').hasClass('clicked') &&     $('.box:nth-child(4)').hasClass('clicked') && $('.box:nth-child(5)').hasClass('clicked') && $('.box:nth-child(6)').hasClass('clicked') && $('.box:nth-child(7)').hasClass('clicked') && $('.box:nth-child(8)').hasClass('clicked') && $('.box:nth-child(9)').hasClass('clicked') ) {
+  $('.winner').html('<span style="color: #35ea97;">Green</span> player wins!');
+  $('.game').addClass('gameover');
+  $('.go').css('visibility', 'visible');
+// All boxes are clicked and no winner
+} else if ( $('.box:nth-child(1)').hasClass('clicked') && $('.box:nth-child(2)').hasClass('clicked') && $('.box:nth-child(3)').hasClass('clicked') &&     $('.box:nth-child(4)').hasClass('clicked') && $('.box:nth-child(5)').hasClass('clicked') && $('.box:nth-child(6)').hasClass('clicked') && $('.box:nth-child(7)').hasClass('clicked') && $('.box:nth-child(8)').hasClass('clicked') && $('.box:nth-child(9)').hasClass('clicked') ) {
   $('.winner').html('It\'s a tie!');
   $('.game').addClass('.gameover');
   $('.go').css('visibility', 'visible');
-  }
+}
 });
 
 // Reset game, remove all classes from .box DIV's, add class player1 to .game DIV if not already there, reset html of .winner DIV, remove gameover class from .game DIV, remove .go overlay DIV
@@ -93,14 +93,14 @@ $('button.reset').on("click", function() {
   $('.game').removeClass('gameover');
   $('.box').removeClass('clicked');
   $('.go').css('visibility', 'hidden');
-  });
+});
 });
 
 </script>
-  
+
 <!-- tictactoe game -->
-  <script>
-   $(document).ready(function(){
+<script>
+  $(document).ready(function(){
     $(".menu").on("change", function(event) {
       var choice = $(this).val();
       $(".item.active").removeClass("active");
@@ -108,7 +108,7 @@ $('button.reset').on("click", function() {
     });
   </script>
 
-<!-- background gradient -->
+  <!-- background gradient -->
   <script>
 
     var colors = new Array(
@@ -132,9 +132,9 @@ var gradientSpeed = 0.002;
 
 function updateGradient()
 {
-  
+
   if ( $===undefined ) return;
-  
+
   var c0_0 = colors[colorIndices[0]];
   var c0_1 = colors[colorIndices[1]];
   var c1_0 = colors[colorIndices[2]];
@@ -152,22 +152,22 @@ function updateGradient()
   var color2 = "rgb("+r2+","+g2+","+b2+")";
 
   $('#gradient').css({
-   background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
-    background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
-   
-   step += gradientSpeed;
-   if ( step >= 1 )
-   {
-    step %= 1;
-    colorIndices[0] = colorIndices[1];
-    colorIndices[2] = colorIndices[3];
-    
-    //pick two new target color indices
-    //do not pick the same as the current one
-    colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
-    colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
-    
-  }
+    background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
+      background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
+
+    step += gradientSpeed;
+    if ( step >= 1 )
+    {
+      step %= 1;
+      colorIndices[0] = colorIndices[1];
+      colorIndices[2] = colorIndices[3];
+
+//pick two new target color indices
+//do not pick the same as the current one
+colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+
+}
 }
 
 setInterval(updateGradient,10);
@@ -177,7 +177,7 @@ setInterval(updateGradient,10);
 
 
 <button id="btnScrollToTop">
-	<i class='fas fa-arrow-alt-circle-up' style='font-size:35px;color:white'></i>
+  <i class='fas fa-arrow-alt-circle-up' style='font-size:35px;color:white'></i>
 </button>
 
 <div id="gradient"></div>
@@ -188,12 +188,12 @@ setInterval(updateGradient,10);
 
 <nav>
   <ul>
-   <li><a href="meditation.html">MEDITATION</a></li>
-   <li><a href="exercise.html" class="link">EXERCISE</a></li>
-   <li><a href="yoga.html" class="link">YOGA</a></li>
-   <li><a href="health.html" class="link">HEALTH/FOOD</a></li>
-   <li class="current"><a href="games.html" class="link">GAMES</a></li>
- </ul>
+    <li><a href="meditation.html">MEDITATION</a></li>
+    <li><a href="exercise.html" class="link">EXERCISE</a></li>
+    <li><a href="yoga.html" class="link">YOGA</a></li>
+    <li><a href="health.html" class="link">HEALTH/FOOD</a></li>
+    <li class="current"><a href="games.html" class="link">GAMES</a></li>
+  </ul>
 </nav>
 
 <div class="sidebar">
@@ -212,46 +212,46 @@ setInterval(updateGradient,10);
 <main>
 
   <div class="meditationcontent">
-    
-    
-
-<div class="body">
-<h2> TicTacToe </h2>
-<h2 class="winner"><span style="color:#333333;">Grey</span> players turn!</h2>
-<button class="reset">New game!</button>
-<div class="go">GAME OVER</div>
-<div class="game player1">
-  <div class="box"></div>
-  <div class="box"></div>
-  <div class="box"></div>
-  <div class="box"></div>
-  <div class="box"></div>
-  <div class="box"></div>
-  <div class="box"></div>
-  <div class="box"></div>
-  <div class="box"></div>
-</div>
-</div>
 
 
+
+    <div class="body">
+      <h2> TicTacToe </h2>
+      <h2 class="winner"><span style="color:#333333;">Grey</span> players turn!</h2>
+      <button class="reset">New game!</button>
+      <div class="go">GAME OVER</div>
+      <div class="game player1">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
+    </div>
 
 
 
 
-</main>
 
-<script>
-  const btnScrollToTop = document.querySelector("#btnScrollToTop");
 
-  btnScrollToTop.addEventListener("click", function () {
-   window.scrollTo({
-    top:0,
-    left:0,
-    behavior:"smooth"
-  });
+  </main>
 
- });
-</script>
-<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <script>
+    const btnScrollToTop = document.querySelector("#btnScrollToTop");
+
+    btnScrollToTop.addEventListener("click", function () {
+      window.scrollTo({
+        top:0,
+        left:0,
+        behavior:"smooth"
+      });
+
+    });
+  </script>
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </body>
 </html>

@@ -6,51 +6,51 @@
 </head>
 <body>
 
-<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-<script src="js/script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+	<script src="js/script.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
-<button id="btnScrollToTop">
+	<button id="btnScrollToTop">
 		<i class='fas fa-arrow-alt-circle-up' style='font-size:35px;color:white'></i>
-</button>
+	</button>
 
-<script>
-	$(document).ready(function(){
-		$('.sidebarBtn').click(function(){
-			$('.sidebar').toggleClass('active');
-			$('.sidebarBtn').toggleClass('toggle');
-			$('.sidebarBtn').toggleClass('toggle');
-			$('.sidebarBtn').toggleClass('leftyoujerk');
-		})
-	});
-</script>
+	<script>
+		$(document).ready(function(){
+			$('.sidebarBtn').click(function(){
+				$('.sidebar').toggleClass('active');
+				$('.sidebarBtn').toggleClass('toggle');
+				$('.sidebarBtn').toggleClass('toggle');
+				$('.sidebarBtn').toggleClass('leftyoujerk');
+			})
+		});
+	</script>
 
-<script>
-	const btnScrollToTop = document.querySelector("#btnScrollToTop");
+	<script>
+		const btnScrollToTop = document.querySelector("#btnScrollToTop");
 
-	btnScrollToTop.addEventListener("click", function () {
-		window.scrollTo({
-			top:0,
-			left:0,
-			behavior:"smooth"
+		btnScrollToTop.addEventListener("click", function () {
+			window.scrollTo({
+				top:0,
+				left:0,
+				behavior:"smooth"
+			});
+
 		});
 
-	});
+	</script>
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
-</script>
-<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<script>
 
-<script>
+		var colors = new Array(
+			[62,35,255],
+			[60,255,60],
+			[255,35,98],
+			[45,175,230],
+			[255,0,255],
+			[255,128,0]);
 
-	var colors = new Array(
-		[62,35,255],
-		[60,255,60],
-		[255,35,98],
-		[45,175,230],
-		[255,0,255],
-		[255,128,0]);
-
-	var step = 0;
+		var step = 0;
 //color table indices for: 
 // current color left
 // next color left
@@ -93,11 +93,11 @@ function updateGradient()
 			colorIndices[0] = colorIndices[1];
 			colorIndices[2] = colorIndices[3];
 
-    //pick two new target color indices
-    //do not pick the same as the current one
-    colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
-    colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
-    
+//pick two new target color indices
+//do not pick the same as the current one
+colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+
 }
 }
 
@@ -139,7 +139,7 @@ setInterval(updateGradient,10);
 
 	<div class="meditationcontent">
 
-		
+
 
 		<h2> What is exercise? </h2>
 		<p>Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.</p>
@@ -210,10 +210,7 @@ setInterval(updateGradient,10);
 
 					<button class="time_button">Time: 20 min</button>
 				</div>
-
-
 			</div>
-
 
 
 		</main>

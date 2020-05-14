@@ -6,36 +6,36 @@
 </head>
 <body>
 
-<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-<script src="js/script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+	<script src="js/script.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
-<!-- side bar nav -->
-<script>
-	$(document).ready(function(){
-		$('.sidebarBtn').click(function(){
-			$('.sidebar').toggleClass('active');
-			$('.sidebarBtn').toggleClass('toggle');
-			$('.sidebarBtn').toggleClass('toggle');
-			$('.sidebarBtn').toggleClass('leftyoujerk');
-		})
-	});
-</script>
+	<!-- side bar nav -->
+	<script>
+		$(document).ready(function(){
+			$('.sidebarBtn').click(function(){
+				$('.sidebar').toggleClass('active');
+				$('.sidebarBtn').toggleClass('toggle');
+				$('.sidebarBtn').toggleClass('toggle');
+				$('.sidebarBtn').toggleClass('leftyoujerk');
+			})
+		});
+	</script>
 
 
 
-<!-- background gradient -->
-<script>
+	<!-- background gradient -->
+	<script>
 
-	var colors = new Array(
-		[62,35,255],
-		[60,255,60],
-		[255,35,98],
-		[45,175,230],
-		[255,0,255],
-		[255,128,0]);
+		var colors = new Array(
+			[62,35,255],
+			[60,255,60],
+			[255,35,98],
+			[45,175,230],
+			[255,0,255],
+			[255,128,0]);
 
-	var step = 0;
+		var step = 0;
 //color table indices for: 
 // current color left
 // next color left
@@ -48,9 +48,9 @@ var gradientSpeed = 0.002;
 
 function updateGradient()
 {
-	
+
 	if ( $===undefined ) return;
-	
+
 	var c0_0 = colors[colorIndices[0]];
 	var c0_1 = colors[colorIndices[1]];
 	var c1_0 = colors[colorIndices[2]];
@@ -70,19 +70,19 @@ function updateGradient()
 	$('#gradient').css({
 		background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
 			background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
-		
+
 		step += gradientSpeed;
 		if ( step >= 1 )
 		{
 			step %= 1;
 			colorIndices[0] = colorIndices[1];
 			colorIndices[2] = colorIndices[3];
-			
-    //pick two new target color indices
-    //do not pick the same as the current one
-    colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
-    colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
-    
+
+//pick two new target color indices
+//do not pick the same as the current one
+colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+
 }
 }
 
@@ -126,27 +126,27 @@ setInterval(updateGradient,10);
 <main>
 
 	<div class="meditationcontent">
-		
-		
-		
+
+
+
 		<h2> What is yoga? </h2>
 		<p>Yoga is a gentle way to improve your posture, balance, and coordination. Yoga is a systematic practice of physical exercise, breath control, relaxation, diet control, and positive thinking
 			and meditation aimed at developing harmony in the body,
 		mind, and environment. </p>
-		
-		
-		
+
+
+
 		<h2> What are the benefits of yoga? </h2>
 		<p>Some benefits of practicing yoga include an increase in flexibility, muscle strength, posture, bone health, blood flow, happiness, focus, balance, sleep and boosts immunity. Overall yoga is the perfect way to find personal fitness and peace of mind. </p>
 
 	</div>
-	
+
 	<div class="whitebackground">
 		<div class="meditationcontenttwo">	
 			<h2 class="greyh2">How to practice yoga:</h2>
 
 			<div class="two_column_grid">
-				
+
 				<div class="video">
 					<iframe width="100%" height="250"src="https://www.youtube.com/embed/oX6I6vs1EFs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
@@ -192,8 +192,8 @@ setInterval(updateGradient,10);
 				</div>
 			</div>
 
-			
-			
+
+
 
 		</main>
 		<script>
